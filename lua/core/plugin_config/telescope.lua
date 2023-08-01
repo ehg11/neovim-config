@@ -8,4 +8,4 @@ vim.keymap.set('n', '<leader>sh', builtin.help_tags, {})
 vim.keymap.set('n', '<leader>sc', builtin.commands, {})
 vim.keymap.set('n', '<leader>sb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>th', builtin.colorscheme, {})
-
+vim.keymap.set('n', '<leader>sm', ':Telescope harpoon marks<CR>', {})
