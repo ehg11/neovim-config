@@ -88,4 +88,9 @@ require('lazy').setup({
         'nkakouros-original/numbers.nvim',
         opts = {}
     },
+    {
+        'folke/persistence.nvim',
+        event = 'BufReadPre',
+        opts = {}
+    }
 })
