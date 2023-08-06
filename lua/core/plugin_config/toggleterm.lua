@@ -32,11 +32,10 @@ vim.api.nvim_create_autocmd('TermEnter', {
         vim.opt.relativenumber = false
     end
 })
-
--- vim.api.nvim_create_autocmd('TermLeave', {
---     group = vim.api.nvim_create_augroup('TermLeaveAu', { clear = true }),
---     callback = function()
---         vim.opt.nu = true
---         vim.opt.relativenumber = true
---     end
--- })
+vim.api.nvim_create_autocmd('TermLeave', {
+    group = vim.api.nvim_create_augroup('TermLeaveAu', { clear = true }),
+    callback = function()
+        vim.opt.nu = false
+        vim.opt.relativenumber = false
+    end
+})
