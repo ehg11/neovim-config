@@ -24,3 +24,19 @@ vim.api.nvim_create_autocmd('TermOpen', {
         vim.keymap.set('t', '<C-l>', [[<C-\><C-n><C-l>]], opts)
     end
 })
+
+vim.api.nvim_create_autocmd('TermEnter', {
+    group = vim.api.nvim_create_augroup('TermEnterAu', { clear = true }),
+    callback = function()
+        vim.opt.nu = false
+        vim.opt.relativenumber = false
+    end
+})
+
+-- vim.api.nvim_create_autocmd('TermLeave', {
+--     group = vim.api.nvim_create_augroup('TermLeaveAu', { clear = true }),
+--     callback = function()
+--         vim.opt.nu = true
+--         vim.opt.relativenumber = true
+--     end
+-- })
