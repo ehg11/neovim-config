@@ -27,7 +27,4 @@ vim.opt.scrolloff = 8
 
 vim.opt.updatetime = 50
 
-vim.o.shell = [["C:/Program Files/Git/bin/bash.exe"]]
-
 vim.cmd('set noshowmode')
-vim.cmd('set shellcmdflag=-c')
