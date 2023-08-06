@@ -30,6 +30,9 @@ vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = 'Move to Bottom Window' })
 vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = 'Move to Top Windw' })
 
 vim.keymap.set('n', '<C-w>h', '<C-w>s')
+vim.keymap.set('n', '<C-q>', ':qa!<CR>')
+
+vim.keymap.set('n', 'q:', ':q', { noremap = true })
 
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 vim.api.nvim_create_autocmd('TextYankPost', {

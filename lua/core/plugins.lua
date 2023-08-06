@@ -63,26 +63,9 @@ require('lazy').setup({
     },
     'ThePrimeagen/harpoon',
     'mbbill/undotree',
-    'tpope/vim-sleuth',
-    'akinsho/toggleterm.nvim',
     {
         "zbirenbaum/neodim",
         event = "LspAttach",
-        config = function ()
-            require("neodim").setup({
-                alpha = 0.75,
-                blend_color = "#000000",
-                update_in_insert = {
-                    enable = true,
-                    delay = 100,
-                },
-                hide = {
-                    virtual_text = true,
-                    signs = true,
-                    underline = true,
-                }
-            })
-        end
     },
     {
         'nkakouros-original/numbers.nvim',
@@ -92,5 +75,6 @@ require('lazy').setup({
         'folke/persistence.nvim',
         event = 'BufReadPre',
         opts = {}
-    }
+    },
+    {'akinsho/toggleterm.nvim', version = "*", config = true},
 })
