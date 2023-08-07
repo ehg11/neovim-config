@@ -77,5 +77,14 @@ require('lazy').setup({
         opts = {}
     },
     {'akinsho/toggleterm.nvim', version = "*", config = true},
-    'windwp/nvim-ts-autotag'
+    'windwp/nvim-ts-autotag',
+    'maxmellon/vim-jsx-pretty',
+    {
+        'yioneko/nvim-yati',
+        branch = '*',
+        dependencies = {
+            'nvim-treesitter/nvim-treesitter'
+        }
+    },
+    'pocco81/auto-save.nvim',
 })
