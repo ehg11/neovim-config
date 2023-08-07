@@ -77,4 +77,5 @@ require('lazy').setup({
         opts = {}
     },
     {'akinsho/toggleterm.nvim', version = "*", config = true},
+    'windwp/nvim-ts-autotag'
 })
