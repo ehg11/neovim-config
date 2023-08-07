@@ -87,4 +87,9 @@ require('lazy').setup({
         }
     },
     'pocco81/auto-save.nvim',
+    {
+        'folke/trouble.nvim',
+        dependencies = { 'nvim-tree/nvim-web-devicons' },
+        opts = {},
+    },
 })

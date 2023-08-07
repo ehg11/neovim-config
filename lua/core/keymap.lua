@@ -42,3 +42,9 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     group = highlight_group,
     pattern = '*',
 })
+
+local diagnostics_active = true
+vim.keymap.set('n', '<leader>dd', function()
+    diagnostics_active = not diagnostics_active
+    vim.diagnostic.config({ virtual_text = diagnostics_active })
+end, { desc = 'Toggle [D]iagnostics'})
