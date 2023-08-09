@@ -81,7 +81,6 @@ require('lazy').setup({
     'maxmellon/vim-jsx-pretty',
     {
         'yioneko/nvim-yati',
-        branch = '*',
         dependencies = {
             'nvim-treesitter/nvim-treesitter'
         }
