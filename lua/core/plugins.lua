@@ -91,4 +91,22 @@ require('lazy').setup({
         dependencies = { 'nvim-tree/nvim-web-devicons' },
         opts = {},
     },
+    {
+        'romgrk/barbar.nvim',
+        dependencies = {
+            'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
+            'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
+        },
+        init = function() vim.g.barbar_auto_setup = false end,
+        opts = {},
+        version = '^1.0.0', -- optional: only update when a new 1.x version is released
+    },
+    {
+        "kylechui/nvim-surround",
+        version = "*", -- Use for stability; omit to use `main` branch for the latest features
+        event = "VeryLazy",
+        config = function()
+            require("nvim-surround").setup({ })
+        end
+    }
 })

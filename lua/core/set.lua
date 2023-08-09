@@ -27,4 +27,6 @@ vim.opt.scrolloff = 8
 
 vim.opt.updatetime = 50
 
+vim.o.laststatus = 3
+
 vim.cmd('set noshowmode')
