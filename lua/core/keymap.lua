@@ -19,6 +19,8 @@ vim.keymap.set('n', 'c', [["_c]])
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+vim.keymap.set('v', 'H', 'Ypgv')
+vim.keymap.set('v', 'L', 'YPgv')
 
 vim.keymap.set('v', 'y', 'ygv<Esc>')
 
@@ -40,6 +42,7 @@ vim.keymap.set("n", "<M-j>", [[<cmd>horizontal resize -2<cr>]], { desc = 'Shrink
 
 vim.keymap.set('n', '<C-w>h', '<C-w>s')
 vim.keymap.set('n', '<C-q>', ':qa!<CR>')
+vim.keymap.set('i', '<C-q>', '<Esc>:wqa!<CR>')
 
 vim.keymap.set('n', 'q:', ':q', { noremap = true })
 
