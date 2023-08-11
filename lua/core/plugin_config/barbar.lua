@@ -3,8 +3,8 @@ function BarbarMap(mode, keybind, action, desc)
 end
 
 -- Move to previous/next
-BarbarMap('n', '<Tab>', '<Cmd>BufferNext<CR>', 'Goto Next Tab')
-BarbarMap('n', '<S-Tab>', '<Cmd>BufferPrevious<CR>', 'Goto Previous Tab')
+BarbarMap('n', '<M-l>', '<Cmd>BufferNext<CR>', 'Goto Next Tab')
+BarbarMap('n', '<M-h>', '<Cmd>BufferPrevious<CR>', 'Goto Previous Tab')
 
 -- Re-order to previous/next
 BarbarMap('n', '<M-<>', '<Cmd>BufferMovePrevious<CR>', 'Move Tab Left')
