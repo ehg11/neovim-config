@@ -17,6 +17,11 @@ require('lazy').setup({
         name = "catppuccin",
         priority = 1000
     },
+    {
+        "folke/tokyonight.nvim",
+        lazy = false,
+        priority = 1000,
+    },
     'nvim-tree/nvim-tree.lua',
     'nvim-tree/nvim-web-devicons',
     'nvim-lualine/lualine.nvim',
@@ -108,5 +113,15 @@ require('lazy').setup({
         config = function()
             require("nvim-surround").setup({ })
         end
-    }
+    },
+    {
+        "kdheepak/lazygit.nvim",
+        dependencies =  {
+            "nvim-telescope/telescope.nvim",
+            "nvim-lua/plenary.nvim"
+        },
+        config = function()
+            require('telescope').load_extension('lazygit')
+        end,
+    },
 })

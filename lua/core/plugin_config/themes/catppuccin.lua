@@ -1,4 +1,3 @@
-vim.cmd.colorscheme "catppuccin-frappe"
 require("catppuccin").setup({
     integrations = {
         cmp = true,
@@ -9,3 +8,5 @@ require("catppuccin").setup({
         mini = false,
     }
 })
+
+vim.cmd.colorscheme "catppuccin-frappe"
