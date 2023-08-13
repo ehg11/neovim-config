@@ -90,7 +90,6 @@ require('lazy').setup({
             'nvim-treesitter/nvim-treesitter'
         }
     },
-    'pocco81/auto-save.nvim',
     {
         'folke/trouble.nvim',
         dependencies = { 'nvim-tree/nvim-web-devicons' },
