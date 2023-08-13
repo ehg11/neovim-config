@@ -123,4 +123,5 @@ require('lazy').setup({
             require('telescope').load_extension('lazygit')
         end,
     },
+    "pocco81/auto-save.nvim"
 })
