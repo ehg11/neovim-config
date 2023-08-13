@@ -41,19 +41,22 @@ require('lazy').setup({
         }
     },
     {
-        'VonHeikemen/lsp-zero.nvim',
-        branch = 'v2.x',
+        'neovim/nvim-lspconfig',
         dependencies = {
-            -- LSP Support
-            {'neovim/nvim-lspconfig'},             -- Required
-            {'williamboman/mason.nvim'},           -- Optional
-            {'williamboman/mason-lspconfig.nvim'}, -- Optional
-
-            -- Autocompletion
-            {'hrsh7th/nvim-cmp'},     -- Required
-            {'hrsh7th/cmp-nvim-lsp'}, -- Required
-            {'L3MON4D3/LuaSnip'},     -- Required
+            { 'williamboman/mason.nvim', config = true },
+            'williamboman/mason-lspconfig.nvim',
+            { 'j-hui/fidget.nvim', tag = 'legacy', opts = {} },
+            'folke/neodev.nvim'
         }
+    },
+    {
+        'hrsh7th/nvim-cmp',
+        dependencies = {
+            'L3MON4D3/LuaSnip',
+            'saadparwaiz1/cmp_luasnip',
+            'hrsh7th/cmp-nvim-lsp',
+            'rafamadriz/friendly-snippets',
+        },
     },
     'lewis6991/gitsigns.nvim',
     'lukas-reineke/indent-blankline.nvim',
