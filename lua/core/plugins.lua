@@ -41,19 +41,22 @@ require('lazy').setup({
         }
     },
     {
-        'VonHeikemen/lsp-zero.nvim',
-        branch = 'v2.x',
+        'neovim/nvim-lspconfig',
         dependencies = {
-            -- LSP Support
-            {'neovim/nvim-lspconfig'},             -- Required
-            {'williamboman/mason.nvim'},           -- Optional
-            {'williamboman/mason-lspconfig.nvim'}, -- Optional
-
-            -- Autocompletion
-            {'hrsh7th/nvim-cmp'},     -- Required
-            {'hrsh7th/cmp-nvim-lsp'}, -- Required
-            {'L3MON4D3/LuaSnip'},     -- Required
+            { 'williamboman/mason.nvim', config = true },
+            'williamboman/mason-lspconfig.nvim',
+            { 'j-hui/fidget.nvim', tag = 'legacy', opts = {} },
+            'folke/neodev.nvim'
         }
+    },
+    {
+        'hrsh7th/nvim-cmp',
+        dependencies = {
+            'L3MON4D3/LuaSnip',
+            'saadparwaiz1/cmp_luasnip',
+            'hrsh7th/cmp-nvim-lsp',
+            'rafamadriz/friendly-snippets',
+        },
     },
     'lewis6991/gitsigns.nvim',
     'lukas-reineke/indent-blankline.nvim',
@@ -81,7 +84,11 @@ require('lazy').setup({
         event = 'BufReadPre',
         opts = {}
     },
-    {'akinsho/toggleterm.nvim', version = "*", config = true},
+    {
+        'akinsho/toggleterm.nvim',
+        version = "*",
+        config = true
+    },
     'windwp/nvim-ts-autotag',
     'maxmellon/vim-jsx-pretty',
     {
@@ -90,7 +97,6 @@ require('lazy').setup({
             'nvim-treesitter/nvim-treesitter'
         }
     },
-    'pocco81/auto-save.nvim',
     {
         'folke/trouble.nvim',
         dependencies = { 'nvim-tree/nvim-web-devicons' },
@@ -123,5 +129,13 @@ require('lazy').setup({
         config = function()
             require('telescope').load_extension('lazygit')
         end,
+    },
+    "pocco81/auto-save.nvim",
+    {
+        'glepnir/dashboard-nvim',
+        event = 'VimEnter',
+        dependencies = {
+            'nvim-tree/nvim-web-devicons'
+        }
     },
 })
