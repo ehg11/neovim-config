@@ -84,7 +84,11 @@ require('lazy').setup({
         event = 'BufReadPre',
         opts = {}
     },
-    {'akinsho/toggleterm.nvim', version = "*", config = true},
+    {
+        'akinsho/toggleterm.nvim',
+        version = "*",
+        config = true
+    },
     'windwp/nvim-ts-autotag',
     'maxmellon/vim-jsx-pretty',
     {
@@ -126,5 +130,12 @@ require('lazy').setup({
             require('telescope').load_extension('lazygit')
         end,
     },
-    "pocco81/auto-save.nvim"
+    "pocco81/auto-save.nvim",
+    {
+        'glepnir/dashboard-nvim',
+        event = 'VimEnter',
+        dependencies = {
+            'nvim-tree/nvim-web-devicons'
+        }
+    },
 })

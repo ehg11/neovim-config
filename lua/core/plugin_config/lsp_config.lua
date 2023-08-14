@@ -42,7 +42,7 @@ local servers = {
     html = { filetypes = { 'html', 'twig', 'hbs'} },
     lua_ls = {
         Lua = {
-            workspace = { checkThirdPart = false },
+            workspace = { checkThirdParty = false },
             telemetry = { enable = false },
         },
     }

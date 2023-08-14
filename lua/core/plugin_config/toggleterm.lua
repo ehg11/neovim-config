@@ -8,7 +8,7 @@ require('toggleterm').setup({
     start_in_insert = true,
     insert_mappings = true,
     persist_size = true,
-    direction = 'horizontal',
+    direction = 'float',
     close_on_exit = true,
     shell = vim.o.shell
 })
@@ -38,3 +38,12 @@ vim.api.nvim_create_autocmd('TermLeave', {
         vim.opt.relativenumber = false
     end
 })
+
+local Terminal = require('toggleterm.terminal').Terminal
+local lazygit = Terminal:new({ cmd = 'lazygit', hidden = true })
+
+function _lazygit_toggle()
+    lazygit:toggle()
+end
+
+vim.keymap.set('n', '<leader>lg', '<cmd>lua _lazygit_toggle()<CR>', { noremap = true, silent = true, desc = 'Open [L]azy [G]it'})
