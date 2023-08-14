@@ -45,6 +45,16 @@ require('dashboard').setup({
                 key_hl = 'Number',
                 action = 'lua require("persistence").load({})'
             },
+            {
+                icon = '  ',
+                icon_hl = 'Title',
+                desc = 'Git                 ',
+                desc_hl = 'String',
+                key = 'g',
+                keymap = 'SPC l g',
+                key_hl = 'Number',
+                action = 'lua _lazygit_toggle()',
+            }
         }
     },
 })
