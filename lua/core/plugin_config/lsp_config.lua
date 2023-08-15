@@ -88,10 +88,6 @@ cmp.setup({
             behavior = cmp.ConfirmBehavior.Replace,
             select = true,
         },
-        ['<CR>'] = cmp.mapping.confirm {
-            behavior = cmp.ConfirmBehavior.Replace,
-            select = true,
-        },
         ['<Down>'] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_next_item()
