@@ -58,6 +58,12 @@ require('lazy').setup({
             'rafamadriz/friendly-snippets',
         },
     },
+    {
+        'hrsh7th/cmp-nvim-lsp-signature-help',
+        dependencies = {
+            'hrsh7th/nvim-cmp',
+        }
+    },
     'lewis6991/gitsigns.nvim',
     'lukas-reineke/indent-blankline.nvim',
     {
