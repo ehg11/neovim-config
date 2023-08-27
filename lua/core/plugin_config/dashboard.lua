@@ -51,9 +51,9 @@ require('dashboard').setup({
                 desc = 'Git                 ',
                 desc_hl = 'String',
                 key = 'g',
-                keymap = 'SPC l g',
+                keymap = 'SPC g s',
                 key_hl = 'Number',
-                action = 'lua _lazygit_toggle()',
+                action = vim.cmd.Git,
             }
         }
     },
