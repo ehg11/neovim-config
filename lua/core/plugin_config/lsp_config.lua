@@ -33,6 +33,12 @@ local on_attach = function(_, bufnr)
     end, { desc = 'Format current buffer with LSP' })
 end
 
+local signs = { Error = "×", Warn = "", Hint = "💡", Info = "¡" }
+for type, icon in pairs(signs) do
+    local hl = "DiagnosticSign" .. type
+    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
+
 local servers = {
     clangd = {},
     gopls = {},
@@ -87,8 +93,8 @@ cmp.setup({
         completeopt = 'menu,menuone,noinsert'
     },
     mapping = cmp.mapping.preset.insert {
-        ['<C-u>'] = cmp.mapping.scroll_docs(-4),
-        ['<C-d>'] = cmp.mapping.scroll_docs(4),
+        ['<C-u>'] = cmp.mapping.scroll_docs(-2),
+        ['<C-d>'] = cmp.mapping.scroll_docs(2),
         ['<C-e>'] = cmp.mapping(function()
             if cmp.visible() then
                 cmp.abort()

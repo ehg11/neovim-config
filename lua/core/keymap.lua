@@ -15,7 +15,6 @@ vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = 'Move to Top Windw' })
 
 vim.keymap.set('n', '<C-w><C-w>', '<C-w>q')
 
-vim.keymap.set('n', 'c', [["_c]])
 vim.keymap.set('n', 'Q', 'q', { noremap = true })
 vim.keymap.set('n', 'q', '<nop>', { noremap = true })
 
