@@ -82,7 +82,20 @@ cmp.setup({
             luasnip.lsp_expand(args.body)
         end,
     },
+    preselect = 'item',
+    completion = {
+        completeopt = 'menu,menuone,noinsert'
+    },
     mapping = cmp.mapping.preset.insert {
+        ['<C-u>'] = cmp.mapping.scroll_docs(-4),
+        ['<C-d>'] = cmp.mapping.scroll_docs(4),
+        ['<C-e>'] = cmp.mapping(function()
+            if cmp.visible() then
+                cmp.abort()
+            else
+                cmp.complete()
+            end
+        end),
         ['<C-Space>'] = cmp.mapping.complete {},
         ['<Tab>'] = cmp.mapping.confirm {
             behavior = cmp.ConfirmBehavior.Replace,

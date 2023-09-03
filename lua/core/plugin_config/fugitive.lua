@@ -14,6 +14,14 @@ vim.api.nvim_create_autocmd('BufWinEnter', {
             return { buffer = bufnr, remap = false, desc = 'Git:' .. desc }
         end
 
+        vim.keymap.set('n', '<leader>c', function()
+            vim.cmd.Git('commit')
+        end, opts('Commit Staged'))
+
+        vim.keymap.set('n', '<leader>c', function()
+            vim.cmd.Git('commit', '-a')
+        end, opts('Commit All'))
+
         vim.keymap.set('n', '<leader>p', function()
             vim.cmd.Git('push')
         end, opts('Push'))
