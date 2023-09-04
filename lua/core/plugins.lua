@@ -1,3 +1,4 @@
+-- Lazy plugin manager
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -11,7 +12,9 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- plugins
 require('lazy').setup({
+    -- themes
     {
         "catppuccin/nvim",
         name = "catppuccin",
@@ -22,9 +25,14 @@ require('lazy').setup({
         lazy = false,
         priority = 1000,
     },
-    'nvim-tree/nvim-tree.lua',
     'nvim-tree/nvim-web-devicons',
     'nvim-lualine/lualine.nvim',
+    'lewis6991/gitsigns.nvim',
+
+    -- file explorer
+    'nvim-tree/nvim-tree.lua',
+
+    -- syntax highlighting
     {
         'nvim-treesitter/nvim-treesitter',
         dependencies = {
@@ -32,6 +40,8 @@ require('lazy').setup({
         },
         build = ':TSUpdate',
     },
+
+    -- sticky context bar on tob
     'nvim-treesitter/nvim-treesitter-context',
     {
         'nvim-telescope/telescope.nvim',
@@ -40,6 +50,8 @@ require('lazy').setup({
             'nvim-lua/plenary.nvim'
         }
     },
+
+    -- LSP
     {
         'neovim/nvim-lspconfig',
         dependencies = {
@@ -64,38 +76,66 @@ require('lazy').setup({
             'hrsh7th/nvim-cmp',
         }
     },
-    'lewis6991/gitsigns.nvim',
+
+    -- show indent guids
     'lukas-reineke/indent-blankline.nvim',
+
+    -- auto pair
     {
         'windwp/nvim-autopairs',
         event = 'InsertEnter',
         opts = {},
     },
+
+    -- comment functionality
     {
         'numToStr/Comment.nvim',
         opts = {},
     },
+
+    -- surround keybinds
+    {
+        'kylechui/nvim-surround',
+        version = '*',
+        event = 'VeryLazy',
+    },
+
+    -- quick file navigation
     'ThePrimeagen/harpoon',
+
+    -- see undo history
     'mbbill/undotree',
+
+    -- dim unused parameters
     {
         "zbirenbaum/neodim",
         event = "LspAttach",
     },
+
+    -- smart numbers (relative normally, basic line nums in insert)
     {
         'nkakouros-original/numbers.nvim',
         opts = {}
     },
+
+    -- saving session (by directory)
     {
         'folke/persistence.nvim',
         event = 'BufReadPre',
         opts = {}
     },
+
+    -- terminal inside editor
     {
         'akinsho/toggleterm.nvim',
         version = "*",
         config = true
     },
+
+    -- automatically change tag
     'windwp/nvim-ts-autotag',
+
+    -- improve jsx indenting
     'maxmellon/vim-jsx-pretty',
     {
         'yioneko/nvim-yati',
@@ -103,11 +143,15 @@ require('lazy').setup({
             'nvim-treesitter/nvim-treesitter'
         }
     },
+
+    -- diagnostics menu
     {
         'folke/trouble.nvim',
         dependencies = { 'nvim-tree/nvim-web-devicons' },
         opts = {},
     },
+
+    -- tabs
     {
         'romgrk/barbar.nvim',
         dependencies = {
@@ -118,25 +162,11 @@ require('lazy').setup({
         opts = {},
         version = '^1.0.0', -- optional: only update when a new 1.x version is released
     },
-    {
-        "kylechui/nvim-surround",
-        version = "*", -- Use for stability; omit to use `main` branch for the latest features
-        event = "VeryLazy",
-        config = function()
-            require("nvim-surround").setup({ })
-        end
-    },
-    {
-        "kdheepak/lazygit.nvim",
-        dependencies =  {
-            "nvim-telescope/telescope.nvim",
-            "nvim-lua/plenary.nvim"
-        },
-        config = function()
-            require('telescope').load_extension('lazygit')
-        end,
-    },
+
+    -- autosave, I know, I suck
     "pocco81/auto-save.nvim",
+
+    -- dashboard because I like customization
     {
         'glepnir/dashboard-nvim',
         event = 'VimEnter',
@@ -144,5 +174,7 @@ require('lazy').setup({
             'nvim-tree/nvim-web-devicons'
         }
     },
+
+    -- I prefer lazy git, but lazy git requires other stuff to be installed...
     'tpope/vim-fugitive',
 })
