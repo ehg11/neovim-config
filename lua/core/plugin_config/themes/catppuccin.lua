@@ -6,6 +6,12 @@ require("catppuccin").setup({
         treesitter = true,
         notify = false,
         mini = false,
+    },
+    -- these are italic by default, removing them so they don't mess with
+    -- indent blankline
+    styles = {
+        comments = {},
+        conditionals = {},
     }
 })
 
