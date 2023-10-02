@@ -78,7 +78,7 @@ require('lazy').setup({
     },
 
     -- show indent guids
-    'lukas-reineke/indent-blankline.nvim',
+    { 'lukas-reineke/indent-blankline.nvim', main = 'ibl', opts = {}},
 
     -- auto pair
     {
@@ -159,14 +159,18 @@ require('lazy').setup({
             'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
         },
         init = function() vim.g.barbar_auto_setup = false end,
-        opts = {},
+        opts = {
+            insert_at_start = false,
+            no_name_title = '[No Name]',
+            auto_hide = 1,
+        },
         version = '^1.0.0', -- optional: only update when a new 1.x version is released
     },
 
     -- autosave, I know, I suck
     "pocco81/auto-save.nvim",
 
-    -- dashboard because I like customization
+    -- commented because of stuff with indent blankline
     {
         'glepnir/dashboard-nvim',
         event = 'VimEnter',
@@ -177,4 +181,11 @@ require('lazy').setup({
 
     -- I prefer lazy git, but lazy git requires other stuff to be installed...
     'tpope/vim-fugitive',
+
+    -- better disambiguation for markdown code blocks
+    {
+        'lukas-reineke/headlines.nvim',
+        dependencies = "nvim-treesitter/nvim-treesitter",
+        config = true, -- or `opts = {}
+    },
 })
