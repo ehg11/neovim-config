@@ -44,3 +44,5 @@ vim.opt.timeoutlen = 300
 
 -- better completions
 vim.opt.completeopt = 'menuone,noselect'
+
+vim.opt.linebreak = true;

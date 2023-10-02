@@ -1,5 +1,8 @@
 vim.g.mapleader = " "
 
+-- making a new file is often useful for random notes
+vim.keymap.set('n', '<leader>nf', ':enew<CR>', { desc = 'Open [N]ew [F]ile', silent = true })
+
 -- better movement with J and K
 vim.keymap.set("n", "J", "mzJ`z")
 vim.keymap.set('n', 'K', 'f s<CR><Esc>')
@@ -32,6 +35,7 @@ vim.keymap.set("x", "p", [["_dP]])
 
 -- convenience to copy to system clipboard
 vim.keymap.set('v', '<leader>y', '"+y')
+vim.keymap.set({'n', 'v'}, '<leader>p', '"+p')
 
 -- select all
 vim.keymap.set('n', '<C-a>', 'ggVG')
