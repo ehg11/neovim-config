@@ -13,7 +13,10 @@ require('headlines').setup({
 vim.api.nvim_create_autocmd('FileType', {
     callback = function()
         vim.opt_local.conceallevel = 2
+        vim.opt_local.spell = true
+
+        vim.keymap.set('n', '<leader>sp', 'z=', { noremap = true, silent = true, desc = '[Sp]ell Check'})
     end,
-    group = vim.api.nvim_create_augroup('MarkdownConceal', { clear = true }),
+    group = vim.api.nvim_create_augroup('MarkdownAutoCmd', { clear = true }),
     pattern = 'markdown',
 })
