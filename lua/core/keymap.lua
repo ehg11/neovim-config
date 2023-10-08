@@ -41,8 +41,8 @@ vim.keymap.set({'n', 'v'}, '<leader>p', '"+p')
 vim.keymap.set('n', '<C-a>', 'ggVG')
 
 -- better motion for multi-line
-vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+vim.keymap.set({'n', 'v'}, 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+vim.keymap.set({'n', 'v'}, 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- quitting
 vim.keymap.set("i", "<C-c>", "<Esc>")
