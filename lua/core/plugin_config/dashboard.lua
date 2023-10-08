@@ -65,6 +65,15 @@ require('dashboard').setup({
                 key_hl = 'Number',
                 action = 'lua _lazygit_toggle()',
             },
+            {
+                icon = '  ',
+                icon_hl = 'Title',
+                desc = 'Config              ',
+                desc_hl = 'String',
+                key = 'c',
+                key_hl = 'Number',
+                action = 'e ~/.config/nvim'
+            }
         }
     },
 })
