@@ -10,5 +10,8 @@ require('ibl').overwrite({
             'NvimTree',
             'Trouble'
         }
+    },
+    scope = {
+        enabled = false,
     }
 })
