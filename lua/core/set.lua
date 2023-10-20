@@ -1,6 +1,5 @@
--- allow line numbers
-vim.opt.nu = true
-vim.opt.relativenumber = true
+-- allow mouse
+-- Note: numbers controlled by numbers.nvim plugin
 vim.o.mouse = 'a'
 
 -- used for finding, case insensitive search
