@@ -188,4 +188,7 @@ require('lazy').setup({
         dependencies = "nvim-treesitter/nvim-treesitter",
         config = true, -- or `opts = {}
     },
+
+    -- dressing for better ui selections
+    'stevearc/dressing.nvim',
 })
