@@ -6,10 +6,16 @@ require('ibl').overwrite({
             'help',
             'dashboard',
             'NvimTree',
-            'Trouble'
+            'Trouble',
+            'mason',
+            'toggleterm',
         }
     },
     scope = {
         enabled = false,
-    }
+    },
+    indent = {
+      char = "│",
+      tab_char = "│",
+    },
 })

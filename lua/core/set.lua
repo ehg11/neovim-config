@@ -45,3 +45,7 @@ vim.opt.timeoutlen = 300
 vim.opt.completeopt = 'menuone,noselect'
 
 vim.opt.linebreak = true;
+
+-- remove autocomment on newline
+vim.cmd("autocmd BufEnter * set formatoptions-=cro")
+vim.cmd("autocmd BufEnter * setlocal formatoptions-=cro")
