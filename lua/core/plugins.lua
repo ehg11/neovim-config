@@ -26,7 +26,12 @@ require('lazy').setup({
         priority = 1000,
     },
     'nvim-tree/nvim-web-devicons',
-    'nvim-lualine/lualine.nvim',
+    {
+        'nvim-lualine/lualine.nvim',
+        dependencies = {
+            'nvim-tree/nvim-web-devicons',
+        }
+    },
     'lewis6991/gitsigns.nvim',
 
     -- file explorer
