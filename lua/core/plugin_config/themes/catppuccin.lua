@@ -17,6 +17,12 @@ require("catppuccin").setup({
                 warnings = { "undercurl" },
                 information = { "undercurl" },
             },
+            virtual_text = {
+                errors = {},
+                hints = {},
+                warnings = {},
+                information = {},
+            }
         },
         semantic_tokens = true,
         telescope = true,
