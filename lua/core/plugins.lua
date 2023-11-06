@@ -209,4 +209,6 @@ require('lazy').setup({
             { "<leader>sr", function() require("spectre").open() end, desc = "Replace in files (Spectre)" },
         },
     },
+
+    'Aasim-A/scrollEOF.nvim',
 })
