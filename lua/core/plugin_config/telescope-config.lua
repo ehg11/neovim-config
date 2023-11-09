@@ -9,6 +9,7 @@ vim.keymap.set('n', '<leader>km', builtin.keymaps, { desc = 'Search [K]ey [M]aps
 vim.keymap.set('n', '<leader>sb', builtin.buffers, { desc = '[S]earch [B]uffers'})
 vim.keymap.set('n', '<leader>th', builtin.colorscheme, { desc = '[T][h]eme Switcher'})
 vim.keymap.set('n', '<leader>sm', ':Telescope harpoon marks<CR>', { desc = '[S]earch Harpoon [M]arks'})
+vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
 
 vim.keymap.set('n', '<leader>/', function()
   -- You can pass additional configuration to telescope to change theme, layout, etc.
