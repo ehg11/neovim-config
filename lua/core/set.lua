@@ -29,7 +29,7 @@ vim.opt.incsearch = true
 vim.opt.termguicolors = true
 
 -- don't go all the way to the bottom to scroll
-vim.opt.scrolloff = 8
+vim.opt.scrolloff = 12
 
 -- single status line
 vim.o.laststatus = 3
