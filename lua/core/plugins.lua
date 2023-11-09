@@ -108,9 +108,6 @@ require('lazy').setup({
     -- quick file navigation
     'ThePrimeagen/harpoon',
 
-    -- see undo history
-    'mbbill/undotree',
-
     -- dim unused parameters
     {
         "zbirenbaum/neodim",
@@ -175,7 +172,6 @@ require('lazy').setup({
     -- autosave, I know, I suck
     "pocco81/auto-save.nvim",
 
-    -- commented because of stuff with indent blankline
     {
         'glepnir/dashboard-nvim',
         event = 'VimEnter',
@@ -194,21 +190,7 @@ require('lazy').setup({
         config = true, -- or `opts = {}
     },
 
-    -- dressing for better ui selections
-    'stevearc/dressing.nvim',
-
     'tpope/vim-sleuth',
-
-    -- workspace find/replace
-    {
-        "nvim-pack/nvim-spectre",
-        cmd = "Spectre",
-        opts = { open_cmd = "noswapfile vnew" },
-        -- stylua: ignore
-        keys = {
-            { "<leader>sr", function() require("spectre").open() end, desc = "Replace in files (Spectre)" },
-        },
-    },
 
     'Aasim-A/scrollEOF.nvim',
 })
