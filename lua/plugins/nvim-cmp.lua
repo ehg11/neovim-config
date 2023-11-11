@@ -13,11 +13,19 @@ return {
     },
     config = function()
         local cmp = require('cmp')
+        local luasnip = require('luasnip')
+        require('luasnip.loaders.from_vscode').lazy_load()
+        luasnip.config.setup({})
 
         cmp.setup({
             preselect = 'item',
             completion = {
                 completeopt = 'menu,menuone,noinsert',
+            },
+            snippet = {
+                expand = function(args)
+                    luasnip.lsp_expand(args.body)
+                end
             },
             mapping = cmp.mapping.preset.insert({
                 ['<C-k>'] = cmp.mapping.select_prev_item(),
@@ -34,8 +42,8 @@ return {
             }),
             sources = cmp.config.sources({
                 { name = 'nvim_lsp' },
-                { name = 'nvim_lsp_signature_help' },
                 { name = 'luasnip' },
+                { name = 'nvim_lsp_signature_help' },
                 { name = 'buffer' },
                 { name = 'path' },
             }),
