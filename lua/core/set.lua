@@ -24,6 +24,7 @@ opt.showmode = false
 opt.signcolumn = 'yes'
 opt.smartcase = true
 opt.smartindent = true
+opt.smarttab = true
 opt.spelllang = { 'en' }
 opt.splitbelow = true
 opt.splitkeep = 'screen'
