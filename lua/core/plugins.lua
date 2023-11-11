@@ -164,7 +164,6 @@ require('lazy').setup({
         opts = {
             insert_at_start = false,
             no_name_title = '[No Name]',
-            auto_hide = 1,
         },
         version = '^1.0.0', -- optional: only update when a new 1.x version is released
     },

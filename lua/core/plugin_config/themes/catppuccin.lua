@@ -1,6 +1,7 @@
 require("catppuccin").setup({
     integrations = {
         cmp = true,
+        barbar = true,
         gitsigns = true,
         nvimtree = true,
         treesitter = true,
