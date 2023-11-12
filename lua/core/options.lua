@@ -2,6 +2,7 @@ vim.g.mapleader = ' '
 
 local opt = vim.opt
 
+opt.breakindent = true
 opt.completeopt = 'menuone,noselect'
 opt.conceallevel = 3
 opt.cursorline = true
@@ -24,6 +25,7 @@ opt.showmode = false
 opt.signcolumn = 'yes'
 opt.smartcase = true
 opt.smartindent = true
+opt.smarttab = true
 opt.spelllang = { 'en' }
 opt.splitbelow = true
 opt.splitkeep = 'screen'
@@ -38,5 +40,3 @@ opt.virtualedit = 'block'
 opt.wildmode = 'longest:full,full'
 opt.winminwidth = 5
 opt.wrap = true
-
-vim.g.markdown_recommended_style = 0
