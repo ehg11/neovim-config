@@ -34,38 +34,36 @@ autocmd('FileType', {
     end
 })
 
-local markdownSugar = function()
-    vim.cmd [[
-        syn match mkdListItem "^\s*[-*+]\s\+" contains=mkdListTab,mkdListBullet2
-        syn match mkdListItem "^\s*\d\+\.\s\+" contains=mkdListTab
-        syn match mkdListTab "^\s*\*" contained contains=mkdListBullet1
-        syn match mkdListBullet1 "\*" contained conceal cchar=•
-        syn match mkdListBullet2 "[-*+]" contained conceal cchar=•
-
-        syn region htmlH1 matchgroup=mkdDelimiter start="^\s*#" end="\($\|[^\\]#\+\)" concealends contains=@Spell,mkdEscapeChar
-        syn region htmlH2 matchgroup=mkdDelimiter start="^\s*##" end="\($\|[^\\]#\+\)" concealends contains=@Spell,mkdEscapeChar
-        syn region htmlH3 matchgroup=mkdDelimiter start="^\s*###" end="\($\|[^\\]#\+\)" concealends contains=@Spell,mkdEscapeChar
-        syn region htmlH4 matchgroup=mkdDelimiter start="^\s*####" end="\($\|[^\\]#\+\)" concealends contains=@Spell,mkdEscapeChar
-        syn region htmlH5 matchgroup=mkdDelimiter start="^\s*#####" end="\($\|[^\\]#\+\)" concealends contains=@Spell,mkdEscapeChar
-        syn region htmlH6 matchgroup=mkdDelimiter start="^\s*######" end="\($\|[^\\]#\+\)" concealends contains=@Spell,mkdEscapeChar
-        syn match htmlH1 /^.\+\n=\+$/ contains=@Spell
-        syn match htmlH2 /^.\+\n-\+$/ contains=@Spell
-        syn match mkdEscape "\\[`\*_{}\[\]()#\+-\.\!]" contained contains=mkdEscapeChar
-        syn match mkdEscapeChar "\\" contained conceal
-    ]]
-end
-
-autocmd('FileType', {
+autocmd('BufEnter', {
     group = augroup('markdown_sugar'),
-    pattern = {'markdown'},
-    callback = markdownSugar
+    pattern = '*.md',
+    callback = function()
+        vim.cmd [[
+            syn match mkdListItem "^\s*[-*+]\s\+" contains=mkdListTab,mkdListBullet2
+            syn match mkdListItem "^\s*\d\+\.\s\+" contains=mkdListTab
+            syn match mkdListTab "^\s*\*" contained contains=mkdListBullet1
+            syn match mkdListBullet1 "\*" contained conceal cchar=•
+            syn match mkdListBullet2 "[-*+]" contained conceal cchar=•
+
+            syn region htmlH1 matchgroup=mkdDelimiter start="^\s*#" end="\($\|[^\\]#\+\)" concealends contains=@Spell,mkdEscapeChar
+            syn region htmlH2 matchgroup=mkdDelimiter start="^\s*##" end="\($\|[^\\]#\+\)" concealends contains=@Spell,mkdEscapeChar
+            syn region htmlH3 matchgroup=mkdDelimiter start="^\s*###" end="\($\|[^\\]#\+\)" concealends contains=@Spell,mkdEscapeChar
+            syn region htmlH4 matchgroup=mkdDelimiter start="^\s*####" end="\($\|[^\\]#\+\)" concealends contains=@Spell,mkdEscapeChar
+            syn region htmlH5 matchgroup=mkdDelimiter start="^\s*#####" end="\($\|[^\\]#\+\)" concealends contains=@Spell,mkdEscapeChar
+            syn region htmlH6 matchgroup=mkdDelimiter start="^\s*######" end="\($\|[^\\]#\+\)" concealends contains=@Spell,mkdEscapeChar
+            syn match htmlH1 /^.\+\n=\+$/ contains=@Spell
+            syn match htmlH2 /^.\+\n-\+$/ contains=@Spell
+            syn match mkdEscape "\\[`\*_{}\[\]()#\+-\.\!]" contained contains=mkdEscapeChar
+            syn match mkdEscapeChar "\\" contained conceal
+        ]]
+    end
 })
 
 autocmd('Filetype', {
     group = augroup('markdown_spell'),
     pattern = {'markdown'},
     callback = function()
-        vim.opt_local.conceallevel = 3
+        vim.opt_local.conceallevel = 2
         vim.opt_local.spell = true
 
         vim.keymap.set('n', '<leader>sp', 'z=', { noremap = true, silent = true, desc = '[Sp]ell Check'})
