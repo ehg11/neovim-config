@@ -4,7 +4,7 @@ return {
         'lewis6991/gitsigns.nvim',
         'nvim-tree/nvim-web-devicons',
     },
-    init = function() 
+    init = function()
         vim.g.barbar_auto_setup = false
     end,
     version = '^1.0.0', -- optional: only update when a new 1.x version is released
@@ -24,6 +24,9 @@ return {
         -- Re-order to previous/next
         BarbarMap('n', '<M-<>', '<Cmd>BufferMovePrevious<CR>', 'Move Tab Left')
         BarbarMap('n', '<M->>', '<Cmd>BufferMoveNext<CR>', 'Move Tab Right')
+        -- more ergonomic keybinds for reordering
+        BarbarMap('n', '<M-k>', '<Cmd>BufferMovePrevious<CR>', 'Move Tab Left')
+        BarbarMap('n', '<M-j>', '<Cmd>BufferMoveNext<CR>', 'Move Tab Right')
 
         -- like harpoon
         BarbarMap('n', '<leader>h', '<Cmd>BufferGoto 1<CR>', 'Goto Tab 1')

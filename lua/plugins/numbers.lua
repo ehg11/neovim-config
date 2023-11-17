@@ -9,6 +9,7 @@ return {
                 'NvimTree',
                 'Trouble',
                 'toggleterm',
+                'aerial',
             }
         })
     end
