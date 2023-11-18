@@ -1,6 +1,6 @@
 return {
     'nkakouros-original/numbers.nvim',
-    config = function() 
+    config = function()
         local numbers = require('numbers')
         numbers.setup({
             excluded_filetypes = {
@@ -9,7 +9,6 @@ return {
                 'NvimTree',
                 'Trouble',
                 'toggleterm',
-                'aerial',
             }
         })
     end
