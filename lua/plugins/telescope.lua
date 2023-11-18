@@ -20,6 +20,7 @@ return {
         vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp'})
         vim.keymap.set('n', '<leader>km', builtin.keymaps, { desc = 'Search [K]ey [M]aps'})
         vim.keymap.set('n', '<leader>sb', builtin.buffers, { desc = '[S]earch [B]uffers'})
+        vim.keymap.set('n', '<leader>ss', builtin.lsp_document_symbols, { desc = '[S]earch [S]ymbols'})
         vim.keymap.set('n', '<leader>th', builtin.colorscheme, { desc = '[T][h]eme Switcher'})
         vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
 
