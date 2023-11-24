@@ -25,8 +25,8 @@ return {
         BarbarMap('n', '<M-<>', '<Cmd>BufferMovePrevious<CR>', 'Move Tab Left')
         BarbarMap('n', '<M->>', '<Cmd>BufferMoveNext<CR>', 'Move Tab Right')
         -- more ergonomic keybinds for reordering
-        BarbarMap('n', '<M-k>', '<Cmd>BufferMovePrevious<CR>', 'Move Tab Left')
-        BarbarMap('n', '<M-j>', '<Cmd>BufferMoveNext<CR>', 'Move Tab Right')
+        BarbarMap('n', '<M-j>', '<Cmd>BufferMovePrevious<CR>', 'Move Tab Left')
+        BarbarMap('n', '<M-k>', '<Cmd>BufferMoveNext<CR>', 'Move Tab Right')
 
         -- like harpoon
         BarbarMap('n', '<leader>h', '<Cmd>BufferGoto 1<CR>', 'Goto Tab 1')
