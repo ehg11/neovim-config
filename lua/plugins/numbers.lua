@@ -10,6 +10,7 @@ return {
                 'Trouble',
                 'toggleterm',
                 'aerial',
+                'mason',
             }
         })
     end

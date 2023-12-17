@@ -32,8 +32,8 @@ return {
                 ['<Up>'] = cmp.mapping.select_prev_item(),
                 ['<C-j>'] = cmp.mapping.select_next_item(),
                 ['<Down>'] = cmp.mapping.select_next_item(),
-                ['<C-u>'] = cmp.mapping.scroll_docs(-2),
-                ['<C-d>'] = cmp.mapping.scroll_docs(2),
+                ['<C-p>'] = cmp.mapping.scroll_docs(-2),
+                ['<C-n>'] = cmp.mapping.scroll_docs(2),
                 ['<C-e>'] = cmp.mapping.abort(),
                 ['<Tab>'] = cmp.mapping.confirm({
                     behavior = cmp.ConfirmBehavior.Replace,
