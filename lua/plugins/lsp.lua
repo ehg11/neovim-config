@@ -65,6 +65,10 @@ return {
                     telemetry = { enable = false },
                 },
             },
+            bashls = {},
+            gopls = {},
+            jdtls = {},
+            rust_analyzer = {},
         }
 
         require('neodev').setup()
