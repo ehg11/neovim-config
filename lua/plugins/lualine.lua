@@ -27,7 +27,10 @@ return {
                             info  = " ",
                         },
                     },
-                    { "filename" }
+                    {
+                        "filename",
+                        path = 1,
+                    }
                 },
 
                 lualine_x = {
