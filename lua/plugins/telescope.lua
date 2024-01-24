@@ -3,6 +3,7 @@ return {
     branch = '0.1.x',
     dependencies = {
         'nvim-lua/plenary.nvim',
+        'folke/trouble.nvim',
         {
             'nvim-telescope/telescope-fzf-native.nvim',
             build = 'make',
@@ -30,5 +31,17 @@ return {
                 previewer = false,
             })
         end, { desc = '[/] Fuzzily search in current buffer' })
+
+        local trouble = require('trouble.providers.telescope')
+        local telescope = require('telescope')
+
+        telescope.setup({
+            defaults = {
+                mappings = {
+                    i = { ['<c-t>'] = trouble.open_with_trouble },
+                    n = { ['<c-t>'] = trouble.open_with_trouble },
+                }
+            }
+        })
     end
 }
