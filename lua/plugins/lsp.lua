@@ -27,10 +27,10 @@ return {
             lspMap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
             lspMap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
-            lspMap('<leader>gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
-            lspMap('<leader>gr', telescope.lsp_references, '[G]oto [R]eferences')
-            lspMap('<leader>gi', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
-            lspMap('<leader>gt', vim.lsp.buf.type_definition, '[G]oto [T]ype Definition')
+            lspMap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
+            lspMap('gr', telescope.lsp_references, '[G]oto [R]eferences')
+            lspMap('gi', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
+            lspMap('gt', vim.lsp.buf.type_definition, '[G]oto [T]ype Definition')
 
             lspMap('H', vim.lsp.buf.hover, '[H]over Documentation')
             lspMap('<leader>h', vim.lsp.buf.signature_help, '[H]over Signature Documentation')
