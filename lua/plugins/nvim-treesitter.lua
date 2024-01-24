@@ -40,6 +40,7 @@ return {
                     "cpp",
                     "c",
                     "python",
+                    "sql",
                 },
                 context_commentstring = {
                     enable = true,

@@ -60,7 +60,10 @@ return {
             hls = {},
             lua_ls = {
                 Lua = {
-                    diagnostics = { globals = { 'vim' }, },
+                    diagnostics = {
+                        globals = { 'vim' },
+                        disable = { 'missing-fields' },
+                    },
                     workspace = { checkThirdParty = false },
                     telemetry = { enable = false },
                 },
@@ -69,6 +72,7 @@ return {
             gopls = {},
             jdtls = {},
             rust_analyzer = {},
+            sqlls = {},
         }
 
         require('neodev').setup()
@@ -89,6 +93,9 @@ return {
                     on_attach = on_attach,
                     settings = servers[server_name],
                     filetypes = (servers[server_name] or {}).filetypes,
+                    root_dir = function()
+                        return vim.loop.cwd()
+                    end
                 }
             end,
         })
