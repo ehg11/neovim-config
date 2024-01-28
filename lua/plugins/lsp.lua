@@ -33,7 +33,7 @@ return {
             lspMap('gt', vim.lsp.buf.type_definition, '[G]oto [T]ype Definition')
 
             lspMap('H', vim.lsp.buf.hover, '[H]over Documentation')
-            lspMap('<leader>h', vim.lsp.buf.signature_help, '[H]over Signature Documentation')
+            lspMap('K', vim.lsp.buf.signature_help, '[H]over Signature Documentation')
         end
 
         local signs = {
