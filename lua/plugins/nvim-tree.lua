@@ -18,6 +18,9 @@ return {
                     info = " ",
                 },
             },
+            view = {
+                width = 30,
+            },
             git = {
                 enable = true,
             },
