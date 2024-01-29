@@ -47,7 +47,7 @@ vim.keymap.set('i', '<C-q>', '<Esc>:wqa!<CR>')
 
 -- I mess this up too often...
 vim.keymap.set('n', 'q:', ':q', { noremap = true })
-vim.keymap.set('n', '<F1>', '<nop>')
+vim.keymap.set({'n', 'v', 'i'}, '<F1>', '<nop>')
 
 -- better indenting
 vim.keymap.set('v', '<', '<gv')
