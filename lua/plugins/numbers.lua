@@ -11,6 +11,7 @@ return {
                 'toggleterm',
                 'aerial',
                 'mason',
+                'lazy',
             }
         })
     end
