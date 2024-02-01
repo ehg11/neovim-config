@@ -12,6 +12,8 @@ return {
         'rafamadriz/friendly-snippets',
     },
     config = function()
+        vim.api.nvim_set_hl(0, 'CmpGhostText', { link = 'Comment', default = true })
+
         local cmp = require('cmp')
         local luasnip = require('luasnip')
         require('luasnip.loaders.from_vscode').lazy_load()
@@ -51,8 +53,13 @@ return {
                 { name = 'nvim_lsp_signature_help' },
                 { name = 'buffer' },
                 { name = 'path' },
-                -- { name = 'luasnip' },
+                { name = 'luasnip' },
             }),
+            experimental = {
+                ghost_text = {
+                    hl_group = 'CmpGhostText',
+                },
+            },
         })
     end
 }
