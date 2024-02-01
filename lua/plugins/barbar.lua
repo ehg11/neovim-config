@@ -11,8 +11,14 @@ return {
     config = function()
         local barbar = require('barbar')
         barbar.setup({
+            animation = false,
             no_name_title = '[No Name]',
+            maximum_padding = 1,
+            minimum_padding = 1,
+            maximum_length = 30,
+            minimum_length = 10,
         })
+
         function BarbarMap(mode, keybind, action, desc)
             vim.api.nvim_set_keymap(mode, keybind, action, { desc = desc, noremap = true, silent = true })
         end
@@ -21,9 +27,6 @@ return {
         BarbarMap('n', '<M-l>', '<Cmd>BufferNext<CR>', 'Goto Next Tab')
         BarbarMap('n', '<M-h>', '<Cmd>BufferPrevious<CR>', 'Goto Previous Tab')
 
-        -- Re-order to previous/next
-        BarbarMap('n', '<M-<>', '<Cmd>BufferMovePrevious<CR>', 'Move Tab Left')
-        BarbarMap('n', '<M->>', '<Cmd>BufferMoveNext<CR>', 'Move Tab Right')
         -- more ergonomic keybinds for reordering
         BarbarMap('n', '<M-j>', '<Cmd>BufferMovePrevious<CR>', 'Move Tab Left')
         BarbarMap('n', '<M-k>', '<Cmd>BufferMoveNext<CR>', 'Move Tab Right')
@@ -48,8 +51,5 @@ return {
 
         -- close tab
         BarbarMap('n', '<M-w>', '<Cmd>BufferClose<CR>', 'Close Tab')
-
-        -- Magic buffer-picking mode
-        BarbarMap('n', '<M-p>', '<Cmd>BufferPick<CR>', 'Pick Tab')
     end,
 }
