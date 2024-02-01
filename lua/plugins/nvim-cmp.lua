@@ -6,6 +6,7 @@ return {
         "hrsh7th/cmp-path", -- source for file system paths
         'hrsh7th/cmp-nvim-lsp',
         'hrsh7th/cmp-nvim-lsp-signature-help',
+        'onsails/lspkind.nvim',
         -- Snippet Engine & its associated nvim-cmp source
         {'L3MON4D3/LuaSnip', version = 'v2.*', build = 'make install_jsregexp'},
         'saadparwaiz1/cmp_luasnip',
@@ -16,6 +17,7 @@ return {
 
         local cmp = require('cmp')
         local luasnip = require('luasnip')
+        local lspkind = require('lspkind')
         require('luasnip.loaders.from_vscode').lazy_load()
         luasnip.config.setup({})
 
@@ -55,6 +57,14 @@ return {
                 { name = 'path' },
                 { name = 'luasnip' },
             }),
+            formatting = {
+                format = lspkind.cmp_format({
+                    mode = 'symbol_text',
+                    maxwidth = 50,
+                    ellipsis_char = '...',
+                    show_labelDetails = true,
+                })
+            },
             experimental = {
                 ghost_text = {
                     hl_group = 'CmpGhostText',
