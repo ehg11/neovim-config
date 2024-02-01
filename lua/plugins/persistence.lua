@@ -4,6 +4,11 @@ return {
     config = function()
         local persistence = require('persistence')
         persistence.setup()
-        vim.api.nvim_set_keymap("n", "<leader>rs", [[<cmd>lua require("persistence").load()<cr>]], {})
+
+        vim.keymap.set('n', '<leader>rs', function() persistence.load() end, {
+            desc = '[R]estore [S]esssion',
+            silent = true,
+            noremap = true,
+        })
     end
 }
