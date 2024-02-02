@@ -8,6 +8,12 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
+vim.keymap.set("n", "{", "{zz")
+vim.keymap.set("n", "}", "}zz")
+vim.keymap.set("n", "G", "Gzz")
+vim.keymap.set("n", "gg", "ggzz")
+vim.keymap.set("n", "<C-o>", "<C-o>zz")
+vim.keymap.set("n", "%", "%zz")
 
 -- Too many plugins use q to close, remapping Q for macros
 vim.keymap.set('n', 'Q', 'q', { noremap = true })
