@@ -7,8 +7,8 @@ return {
         vim.g.loaded_netrw = 1
         vim.g.loaded_netrwPlugin = 1
 
-        local nvimTree = require('nvim-tree')
-        nvimTree.setup({
+        local nvim_tree = require('nvim-tree')
+        nvim_tree.setup({
             diagnostics = {
                 enable = true,
                 icons = {
@@ -26,9 +26,18 @@ return {
             },
             filters = {
                 git_ignored = false,
-            }
+            },
+            actions = {
+                open_file = {
+                    quit_on_open = true,
+                },
+            },
         })
 
-        vim.keymap.set('n', '<C-n>', ':NvimTreeFindFileToggle<cr>', {noremap = true, silent = true, desc = 'Open File Tree'})
+        vim.keymap.set('n', '<C-n>', ':NvimTreeFindFileToggle<cr>', {
+            noremap = true,
+            silent = true,
+            desc = 'Open File Tree'
+        })
     end
 }
