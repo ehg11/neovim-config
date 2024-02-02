@@ -52,7 +52,7 @@ vim.keymap.set("n", "<C-Left>", [[<cmd>vertical resize -2<cr>]], { desc = 'Decre
 
 -- quitting (because I suck and have the explorer open)
 vim.keymap.set('n', '<C-q>', ':qa!<CR>')
-vim.keymap.set('i', '<C-q>', '<Esc>:wqa!<CR>')
+vim.keymap.set({ 'i', 'v' }, '<C-q>', '<Esc>:wqa!<CR>')
 
 -- I mess this up too often...
 vim.keymap.set('n', 'q:', ':q', { noremap = true })
