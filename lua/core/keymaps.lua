@@ -22,7 +22,10 @@ vim.keymap.set('v', 'y', 'ygv<Esc>')
 
 -- convenience to copy to system clipboard
 vim.keymap.set('v', '<leader>y', '"+y')
-vim.keymap.set({'n', 'v'}, '<leader>p', '"+p')
+vim.keymap.set({'n', 'v', 'x'}, '<leader>p', '"+p')
+
+-- paste shouldn't overwrite my clipboard
+vim.keymap.set({'v', 'x'}, 'p', '"_dP')
 
 -- select all
 vim.keymap.set('n', '<C-a>', 'ggVG')
