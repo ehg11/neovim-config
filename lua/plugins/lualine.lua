@@ -9,9 +9,9 @@ return {
             options = {
                 icons_enabled = true,
                 component_separators = '|',
-                section_separators = '',
+                section_separators = { left = '', right = '' },
                 theme = 'auto',
-                disabled_filtypes = { statusline = { 'dashboard' }},
+                disabled_filetypes = { statusline = { 'dashboard' }},
             },
             sections = {
                 lualine_a = { "mode" },
