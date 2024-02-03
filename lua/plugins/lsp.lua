@@ -6,7 +6,6 @@ return {
         'folke/neodev.nvim',
         'nvim-telescope/telescope.nvim',
         'hrsh7th/cmp-nvim-lsp',
-        { 'j-hui/fidget.nvim', tag = 'legacy', opts = {} },
     },
     config = function ()
         local on_attach = function(_, bufnr)

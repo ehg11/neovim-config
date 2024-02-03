@@ -2,9 +2,11 @@ return {
     'nvim-lualine/lualine.nvim',
     dependencies = {
         'nvim-tree/nvim-web-devicons',
+        'folke/noice.nvim',
     },
     config = function()
         local lualine = require('lualine')
+        local noice = require('noice')
         lualine.setup({
             options = {
                 icons_enabled = true,
@@ -34,6 +36,15 @@ return {
                 },
 
                 lualine_x = {
+                    {
+                        noice.api.status.message.get_hl,
+                        cond = noice.api.status.message.has,
+                    },
+                    {
+                        noice.api.status.mode.get,
+                        cond = noice.api.status.mode.has,
+                        color = { fg = "#ff9e64" },
+                    },
                     {
                         "diff",
                         symbols = {
