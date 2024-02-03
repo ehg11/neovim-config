@@ -16,6 +16,7 @@ opt.incsearch = true
 opt.laststatus = 3
 opt.linebreak = true
 opt.mouse = 'a'
+opt.ruler = false
 opt.pumblend = 10
 opt.pumheight = 10
 opt.scrolloff = 8
