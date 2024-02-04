@@ -97,26 +97,6 @@ return {
                         action = 'lua require("persistence").load({})'
                     },
                     {
-                        icon = '  ',
-                        icon_hl = 'Title',
-                        desc = 'Open New File       ',
-                        desc_hl = 'String',
-                        key = 'n',
-                        keymap = 'SPC n f',
-                        key_hl = 'Number',
-                        action = 'enew'
-                    },
-                    {
-                        icon = '  ',
-                        icon_hl = 'Title',
-                        desc = 'Git                 ',
-                        desc_hl = 'String',
-                        key = 'g',
-                        keymap = 'SPC l g',
-                        key_hl = 'Number',
-                        action = 'lua _lazygit_toggle()',
-                    },
-                    {
                         icon = '  ',
                         icon_hl = 'Title',
                         desc = 'Config              ',
