@@ -78,3 +78,11 @@ autocmd('BufEnter', {
         vim.cmd('setlocal formatoptions-=cro')
     end
 })
+
+autocmd('Filetype', {
+    group = augroup('toggleterm_no_gutter_icons'),
+    pattern = { 'toggleterm' },
+    callback = function()
+        vim.opt_local.signcolumn = 'no'
+    end
+})
