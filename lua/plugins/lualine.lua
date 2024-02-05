@@ -37,10 +37,6 @@ return {
 
                 lualine_x = {
                     {
-                        noice.api.status.message.get_hl,
-                        cond = noice.api.status.message.has,
-                    },
-                    {
                         noice.api.status.mode.get,
                         cond = noice.api.status.mode.has,
                         color = { fg = "#ff9e64" },
