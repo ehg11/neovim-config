@@ -11,7 +11,8 @@ return {
             backends = { "lsp", "treesitter", "markdown", "man" },
             close_on_select = true,
             layout = {
-                resize_to_content = false,
+                width = 20,
+                resize_to_content = true,
             },
             icons = {
                 Array         = " ",
