@@ -32,6 +32,7 @@ vim.keymap.set({'n', 'v', 'x'}, '<leader>p', '"+p')
 
 -- paste shouldn't overwrite my clipboard
 vim.keymap.set({'v', 'x'}, 'p', '"_dP')
+vim.keymap.set('n', 'x', '"_x')
 
 -- select all
 vim.keymap.set('n', '<C-a>', 'ggVG')
