@@ -12,6 +12,7 @@ return {
                 'aerial',
                 'mason',
                 'lazy',
+                'noice',
             }
         })
     end
