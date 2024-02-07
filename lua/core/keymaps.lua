@@ -20,8 +20,8 @@ vim.keymap.set('n', 'Q', 'q', { noremap = true })
 vim.keymap.set('n', 'q', '<nop>', { noremap = true })
 
 -- Moving lines up/down
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { silent = true, noremap = true })
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { silent = true, noremap = true })
 
 -- move cursor to end of selection after yank
 vim.keymap.set('v', 'y', 'ygv<Esc>')
@@ -46,17 +46,17 @@ vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = 'Move to Left Window', remap = t
 vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = 'Move to Right Window', remap = true })
 vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = 'Move to Bottom Window', remap = true })
 vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = 'Move to Top Window', remap = true })
-vim.keymap.set("n", "<C-Up>", [[<cmd>horizontal resize +5<cr>]], { desc = 'Increase Window Height' })
-vim.keymap.set("n", "<C-Down>", [[<cmd>horizontal resize -5<cr>]], { desc = 'Decrease Window Height' })
-vim.keymap.set("n", "<C-Right>", [[<cmd>vertical resize +2<cr>]], { desc = 'Increase Window Width'})
-vim.keymap.set("n", "<C-Left>", [[<cmd>vertical resize -2<cr>]], { desc = 'Decrease Window Width'})
+vim.keymap.set("n", "<C-Up>", [[<cmd>horizontal resize +5<cr>]], { desc = 'Increase Window Height', silent = true })
+vim.keymap.set("n", "<C-Down>", [[<cmd>horizontal resize -5<cr>]], { desc = 'Decrease Window Height', silent = true })
+vim.keymap.set("n", "<C-Right>", [[<cmd>vertical resize +2<cr>]], { desc = 'Increase Window Width', silent = true })
+vim.keymap.set("n", "<C-Left>", [[<cmd>vertical resize -2<cr>]], { desc = 'Decrease Window Width', silent = true })
 
 -- quitting (because I suck and have the explorer open)
-vim.keymap.set('n', '<C-q>', ':qa!<CR>')
-vim.keymap.set({ 'i', 'v' }, '<C-q>', '<Esc>:wqa!<CR>')
+vim.keymap.set('n', '<C-q>', ':qa!<CR>', { silent = true, noremap = true })
+vim.keymap.set({ 'i', 'v' }, '<C-q>', '<Esc>:wqa!<CR>', { silent = true, noremap = true})
 
 -- I mess this up too often...
-vim.keymap.set('n', 'q:', ':q', { noremap = true })
+vim.keymap.set('n', 'q:', ':q', { noremap = true, silent = true })
 vim.keymap.set({'n', 'v', 'i'}, '<F1>', '<nop>')
 
 -- better indenting
