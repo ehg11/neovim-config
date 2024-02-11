@@ -52,8 +52,8 @@ vim.keymap.set("n", "<C-Right>", [[<cmd>vertical resize +2<cr>]], { desc = 'Incr
 vim.keymap.set("n", "<C-Left>", [[<cmd>vertical resize -2<cr>]], { desc = 'Decrease Window Width', silent = true })
 
 -- quitting (because I suck and have the explorer open)
-vim.keymap.set('n', '<C-q>', ':qa!<CR>', { silent = true, noremap = true })
-vim.keymap.set({ 'i', 'v' }, '<C-q>', '<Esc>:wqa!<CR>', { silent = true, noremap = true})
+vim.keymap.set('n', '<leader>q', ':qa!<CR>', { silent = true, noremap = true })
+vim.keymap.set({ 'i', 'v' }, '<leader>q', '<Esc>:wqa!<CR>', { silent = true, noremap = true})
 
 -- I mess this up too often...
 vim.keymap.set('n', 'q:', ':q', { noremap = true, silent = true })
