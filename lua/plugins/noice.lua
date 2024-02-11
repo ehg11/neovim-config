@@ -15,13 +15,10 @@ return {
                     ["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
                 },
             },
-            notify = {
-                enabled = false,
-                view = "popup"
-            },
             presets = {
-                -- command_palette = true,
+                command_palette = true,
                 lsp_doc_border = true,
+                inc_rename = true,
             },
         })
     end
