@@ -8,6 +8,7 @@ return {
     config = function()
         local noice = require('noice')
         noice.setup({
+            cmdline = { enabled = false, },
             lsp = {
                 override = {
                     ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
@@ -15,10 +16,11 @@ return {
                     ["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
                 },
             },
+            messages = { enabled = false, },
+            popupmenu = { enabled = false, },
             presets = {
-                command_palette = true,
-                lsp_doc_border = true,
                 inc_rename = true,
+                lsp_doc_border = true,
             },
         })
     end
