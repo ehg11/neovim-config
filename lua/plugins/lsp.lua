@@ -46,7 +46,9 @@ return {
             vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
         end
 
-        require('mason').setup()
+        require('mason').setup({
+            ui = { border = 'rounded', },
+        })
         require('mason-lspconfig').setup()
 
         local servers = {
