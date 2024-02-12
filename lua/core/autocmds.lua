@@ -91,7 +91,6 @@ autocmd('InsertLeave', {
     group = augroup('smartnumber_insertleave'),
     pattern = {'*'},
     callback = function()
-        print("insert leave")
         vim.opt.relativenumber = true
     end
 })
@@ -100,7 +99,6 @@ autocmd('InsertEnter', {
     group = augroup('smartnumber_insertenter'),
     pattern = {'*'},
     callback = function()
-        print("insert enter")
         vim.opt.relativenumber = false
     end
 })
