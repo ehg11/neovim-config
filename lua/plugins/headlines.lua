@@ -7,10 +7,10 @@ return {
         headlines.setup({
             markdown = {
                 headline_highlights = false,
-                codeblock_highlight = "CodeBlock",
-                dash_highlight = "Dash",
+                codeblock_highlight = false,
+                dash_highlight = false,
                 dash_string = "-",
-                quote_highlight = "Quote",
+                quote_highlight = false,
                 quote_string = "┃",
                 fat_headline_lower_string = "🬂",
             },
