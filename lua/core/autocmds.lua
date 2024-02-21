@@ -31,6 +31,8 @@ autocmd('FileType', {
     callback = function()
         vim.opt_local.wrap = true
         vim.opt_local.spell = true
+        vim.keymap.set('n', '<leader>sp', 'z=', { noremap = true, silent = true, desc = '[Sp]ell Check'})
+        vim.cmd('TSContextDisable')
     end
 })
 
@@ -56,17 +58,6 @@ autocmd('BufEnter', {
             syn match mkdEscape "\\[`\*_{}\[\]()#\+-\.\!]" contained contains=mkdEscapeChar
             syn match mkdEscapeChar "\\" contained conceal
         ]]
-    end
-})
-
-autocmd('Filetype', {
-    group = augroup('markdown_spell'),
-    pattern = {'markdown'},
-    callback = function()
-        vim.opt_local.conceallevel = 2
-        vim.opt_local.spell = true
-
-        vim.keymap.set('n', '<leader>sp', 'z=', { noremap = true, silent = true, desc = '[Sp]ell Check'})
     end
 })
 

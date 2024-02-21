@@ -4,7 +4,6 @@ local opt = vim.opt
 
 opt.breakindent = true
 opt.completeopt = 'menuone,noselect'
-opt.conceallevel = 3
 opt.cursorline = true
 opt.expandtab = true
 opt.fillchars = { eob = ' ' }
