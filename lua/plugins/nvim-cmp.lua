@@ -13,8 +13,6 @@ return {
         'rafamadriz/friendly-snippets',
     },
     config = function()
-        vim.api.nvim_set_hl(0, 'CmpGhostText', { link = 'Comment', default = true })
-
         local cmp = require('cmp')
         local luasnip = require('luasnip')
         local lspkind = require('lspkind')
@@ -64,11 +62,6 @@ return {
                     ellipsis_char = '...',
                     show_labelDetails = true,
                 })
-            },
-            experimental = {
-                ghost_text = {
-                    hl_group = 'CmpGhostText',
-                },
             },
         })
     end
