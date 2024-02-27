@@ -3,6 +3,19 @@ vim.g.mapleader = ' '
 local opt = vim.opt
 
 opt.breakindent = true
+vim.g.clipboard = {
+    name = 'win32yank.exe-wsl',
+    copy = {
+        ['+'] = 'win32yank.exe -i --crlf',
+        ['*'] = 'win32yank.exe -i --crlf',
+    },
+    paste = {
+        ['+'] = 'win32yank.exe -o --lf',
+        ['*'] = 'win32yank.exe -o --lf',
+    },
+    cache_enabled = 1,
+}
+opt.clipboard = 'unnamedplus'
 opt.completeopt = 'menuone,noselect'
 opt.cursorline = true
 opt.expandtab = true
