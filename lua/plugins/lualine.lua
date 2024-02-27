@@ -10,7 +10,7 @@ return {
             options = {
                 icons_enabled = true,
                 component_separators = '|',
-                section_separators = { left = '', right = '' },
+                section_separators = { left = ' ', right = ' ' },
                 theme = 'auto',
                 disabled_filetypes = { statusline = { 'dashboard' }},
             },
