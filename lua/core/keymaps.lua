@@ -72,6 +72,9 @@ vim.keymap.set({'n', 'v', 'i'}, '<F1>', '<nop>')
 vim.keymap.set('v', '<', '<gv')
 vim.keymap.set('v', '>', '>gv')
 
+-- cr in normal mode
+vim.keymap.set('n', '<CR>', 'o<Esc>')
+
 -- diagnostic keybinds
 local diagnosticsActive = true
 local toggleDiagnostics = function ()
