@@ -34,6 +34,15 @@ vim.keymap.set('v', 'y', 'ygv<Esc>')
 vim.keymap.set({'v', 'x'}, 'p', '"_dP')
 vim.keymap.set('n', 'x', '"_x')
 
+function Smart_dd()
+  if vim.api.nvim_get_current_line():match("^%s*$") then
+    return '"_dd'
+  else
+    return "dd"
+  end
+end
+vim.keymap.set('n', 'dd', Smart_dd, { noremap = true, expr = true, silent = true })
+
 -- select all
 vim.keymap.set('n', '<C-a>', 'ggVG')
 
