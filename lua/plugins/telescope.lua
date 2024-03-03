@@ -4,15 +4,36 @@ return {
     dependencies = {
         'nvim-lua/plenary.nvim',
         'folke/trouble.nvim',
+        'nvim-telescope/telescope-ui-select.nvim',
         {
             'nvim-telescope/telescope-fzf-native.nvim',
             build = 'make',
             cond = function()
-                return vim.fn.executable 'make' == 1
+                return vim.fn.executable('make') == 1
             end,
         },
     },
     config = function()
+        local trouble = require('trouble.providers.telescope')
+        local telescope = require('telescope')
+
+        telescope.setup({
+            defaults = {
+                mappings = {
+                    i = { ['<c-t>'] = trouble.open_with_trouble },
+                    n = { ['<c-t>'] = trouble.open_with_trouble },
+                }
+            },
+            extensions = {
+                ['ui-select'] = {
+                    require('telescope.themes').get_dropdown(),
+                },
+            },
+        })
+
+        pcall(require('telescope').load_extension, 'fzf')
+        pcall(require('telescope').load_extension, 'ui-select')
+
         local builtin = require('telescope.builtin')
         vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles'})
         vim.keymap.set('n', '<leader>so', builtin.oldfiles, { desc = '[S]earch [O]ld Files'})
@@ -31,17 +52,5 @@ return {
                 previewer = false,
             })
         end, { desc = '[/] Fuzzily search in current buffer' })
-
-        local trouble = require('trouble.providers.telescope')
-        local telescope = require('telescope')
-
-        telescope.setup({
-            defaults = {
-                mappings = {
-                    i = { ['<c-t>'] = trouble.open_with_trouble },
-                    n = { ['<c-t>'] = trouble.open_with_trouble },
-                }
-            }
-        })
     end
 }
