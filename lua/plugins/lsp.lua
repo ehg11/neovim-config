@@ -53,7 +53,14 @@ return {
         require('mason-lspconfig').setup()
 
         local servers = {
-            clangd = {},
+            clangd = {
+                cmd = {
+                    'clangd',
+                    '--background-index',
+                    '--suggest-missing-includes',
+                    '--enable-config'
+                },
+            },
             pyright = {},
             tsserver = {},
             html = {},
@@ -99,6 +106,7 @@ return {
                     on_attach = on_attach,
                     settings = servers[server_name],
                     filetypes = (servers[server_name] or {}).filetypes,
+                    cmd = (servers[server_name] or {}).cmd,
                     root_dir = function()
                         return vim.loop.cwd()
                     end
