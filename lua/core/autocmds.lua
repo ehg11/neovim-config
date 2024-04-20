@@ -82,6 +82,9 @@ autocmd('InsertLeave', {
     group = augroup('smartnumber_insertleave'),
     pattern = {'*'},
     callback = function()
+        if vim.bo.filetype == 'neo-tree' then
+            return
+        end
         vim.opt.relativenumber = true
     end
 })

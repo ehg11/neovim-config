@@ -12,7 +12,12 @@ return {
                 component_separators = '|',
                 section_separators = { left = ' ', right = ' ' },
                 theme = 'catppuccin',
-                disabled_filetypes = { statusline = { 'dashboard' }},
+                disabled_filetypes = {
+                    statusline = {
+                        'dashboard',
+                        'neo-tree',
+                    }
+                },
             },
             sections = {
                 lualine_a = { "mode" },

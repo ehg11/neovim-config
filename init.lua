@@ -13,27 +13,12 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-if vim.g.vscode then
-    require('lazy').setup({
-        {
-            'kylechui/nvim-surround',
-            version = '*',
-            event = 'VeryLazy',
-            config = function()
-                local surround = require('nvim-surround')
-                surround.setup({ })
-            end
-        },
-    })
-else
-    require('lazy').setup('plugins', {
-        checker = {
-            enabled = true,
-            notify = false,
-        },
-        change_detection = {
-            notify = false,
-        },
-    })
-end
-
+require('lazy').setup('plugins', {
+    checker = {
+        enabled = true,
+        notify = false,
+    },
+    change_detection = {
+        notify = false,
+    },
+})
