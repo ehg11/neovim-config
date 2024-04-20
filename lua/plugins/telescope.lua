@@ -16,6 +16,14 @@ return {
     config = function()
         local trouble = require('trouble.providers.telescope')
         local telescope = require('telescope')
+        local telescope_ignore = {
+            'node_modules/',
+            '.git/',
+            '.venv',
+            'build/',
+            'build_coverage/',
+            'CMakeFiles/'
+        }
 
         telescope.setup({
             defaults = {
@@ -23,6 +31,20 @@ return {
                     i = { ['<c-t>'] = trouble.open_with_trouble },
                     n = { ['<c-t>'] = trouble.open_with_trouble },
                 }
+            },
+            pickers = {
+                live_grep = {
+                    file_ignore_patterns = telescope_ignore,
+                    additional_args = function(_)
+                        return { "--hidden" }
+                    end,
+                },
+                find_files = {
+                    file_ignore_patterns = telescope_ignore,
+                    hidden = true,
+                    no_ignore = true,
+                    no_ignore_parent = true,
+                },
             },
             extensions = {
                 ['ui-select'] = {
