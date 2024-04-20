@@ -11,7 +11,7 @@ return {
                 icons_enabled = true,
                 component_separators = '|',
                 section_separators = { left = ' ', right = ' ' },
-                theme = 'auto',
+                theme = 'catppuccin',
                 disabled_filetypes = { statusline = { 'dashboard' }},
             },
             sections = {
@@ -24,7 +24,7 @@ return {
                         symbols = {
                             error = " ",
                             warn  = " ",
-                            hint  = " ",
+                            hint  = "󰌵 ",
                             info  = " ",
                         },
                     },

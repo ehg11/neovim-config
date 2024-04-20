@@ -55,3 +55,5 @@ opt.virtualedit = 'block'
 opt.wildmode = 'longest:full,full'
 opt.winminwidth = 5
 opt.wrap = true
+
+vim.diagnostic.config({ underline = true })
