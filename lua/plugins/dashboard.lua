@@ -70,7 +70,9 @@ return {
             "",
         }
 
+        math.randomseed(os.time())
         local random = math.random(2)
+        print(random)
         local header_text = fuwawa
         local guifg_color = '#8caaee'
         if random == 2 then
