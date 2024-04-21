@@ -93,6 +93,19 @@ autocmd('InsertEnter', {
     group = augroup('smartnumber_insertenter'),
     pattern = {'*'},
     callback = function()
+        if vim.bo.filetype == 'neo-tree' then
+            return
+        end
         vim.opt.relativenumber = false
+    end
+})
+
+autocmd('BufWritePre', {
+    group = augroup('remove_trailing_whitespace'),
+    pattern = {'*'},
+    callback = function()
+        local curpos = vim.api.nvim_win_get_cursor(0)
+        vim.cmd([[keeppatterns %s/\s\+$//e]])
+        vim.api.nvim_win_set_cursor(0, curpos)
     end
 })
