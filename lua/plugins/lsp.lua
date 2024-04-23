@@ -7,12 +7,13 @@ return {
         'folke/neodev.nvim',
         'nvim-telescope/telescope.nvim',
         'hrsh7th/cmp-nvim-lsp',
+        'WhoIsSethDaniel/mason-tool-installer.nvim',
     },
-    config = function ()
+    config = function()
         local on_attach = function(_, bufnr)
             local lspMap = function(keys, func, desc)
                 if desc then
-                    desc = 'LSP: '..desc
+                    desc = 'LSP: ' .. desc
                 end
                 vim.keymap.set('n', keys, func, {
                     buffer = bufnr,
@@ -51,6 +52,7 @@ return {
             ui = { border = 'rounded', },
         })
         require('mason-lspconfig').setup()
+        local mason_tool_installer = require('mason-tool-installer')
 
         local servers = {
             clangd = {
@@ -114,6 +116,16 @@ return {
             end,
         })
 
+        mason_tool_installer.setup({
+            ensure_installed = {
+                'prettier',
+                'stylua',
+                'isort',
+                'black',
+                'clang-format'
+            },
+        })
+
         local _border = "rounded"
         vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
             vim.lsp.handlers.hover, {
@@ -125,8 +137,8 @@ return {
                 border = _border
             }
         )
-        vim.diagnostic.config{
-            float={border=_border}
+        vim.diagnostic.config {
+            float = { border = _border }
         }
         require('lspconfig.ui.windows').default_options = {
             border = _border
