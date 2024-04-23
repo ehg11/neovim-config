@@ -1,6 +1,5 @@
 return {
     'neovim/nvim-lspconfig',
-    event = { "BufReadPost", "BufNewFile", "BufWritePre" },
     dependencies = {
         'williamboman/mason.nvim',
         'williamboman/mason-lspconfig.nvim',
@@ -38,21 +37,30 @@ return {
         end
 
         local signs = {
-            Error = " ",
-            Warn  = " ",
-            Hint  = "󰌵 ",
-            Info  = " ",
+            Error = ' ',
+            Warn = ' ',
+            Hint = '󰌵 ',
+            Info = ' ',
         }
         for type, icon in pairs(signs) do
-            local hl = "DiagnosticSign" .. type
+            local hl = 'DiagnosticSign' .. type
             vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
         end
 
-        require('mason').setup({
-            ui = { border = 'rounded', },
-        })
-        require('mason-lspconfig').setup()
+        require('neodev').setup()
+        local capabilities = vim.tbl_deep_extend(
+            'force',
+            vim.lsp.protocol.make_client_capabilities(),
+            require('cmp_nvim_lsp').default_capabilities()
+        )
+        capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = false
+
+        local mason = require('mason')
+        local mason_lspconfig = require('mason-lspconfig')
         local mason_tool_installer = require('mason-tool-installer')
+        mason.setup({
+            ui = { border = 'rounded' },
+        })
 
         local servers = {
             clangd = {
@@ -60,7 +68,7 @@ return {
                     'clangd',
                     '--background-index',
                     '--suggest-missing-includes',
-                    '--enable-config'
+                    '--enable-config',
                 },
             },
             pyright = {},
@@ -86,16 +94,6 @@ return {
             sqlls = {},
         }
 
-        require('neodev').setup()
-
-        local capabilities = vim.tbl_deep_extend("force",
-            vim.lsp.protocol.make_client_capabilities(),
-            require('cmp_nvim_lsp').default_capabilities()
-        )
-        capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = false
-
-        local mason_lspconfig = require('mason-lspconfig')
-
         mason_lspconfig.setup({
             ensure_installed = vim.tbl_keys(servers),
             automatic_installation = true,
@@ -103,7 +101,7 @@ return {
 
         mason_lspconfig.setup_handlers({
             function(server_name)
-                require('lspconfig')[server_name].setup {
+                require('lspconfig')[server_name].setup({
                     capabilities = capabilities,
                     on_attach = on_attach,
                     settings = servers[server_name],
@@ -111,8 +109,8 @@ return {
                     cmd = (servers[server_name] or {}).cmd,
                     root_dir = function()
                         return vim.loop.cwd()
-                    end
-                }
+                    end,
+                })
             end,
         })
 
@@ -122,26 +120,25 @@ return {
                 'stylua',
                 'isort',
                 'black',
-                'clang-format'
+                'clang-format',
+                'pylint',
+                'eslint_d',
+                'cpplint',
             },
         })
 
-        local _border = "rounded"
-        vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
-            vim.lsp.handlers.hover, {
-                border = _border
-            }
-        )
-        vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
-            vim.lsp.handlers.signature_help, {
-                border = _border
-            }
-        )
-        vim.diagnostic.config {
-            float = { border = _border }
-        }
+        local _border = 'rounded'
+        vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
+            border = _border,
+        })
+        vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+            border = _border,
+        })
+        vim.diagnostic.config({
+            float = { border = _border },
+        })
         require('lspconfig.ui.windows').default_options = {
-            border = _border
+            border = _border,
         }
-    end
+    end,
 }
