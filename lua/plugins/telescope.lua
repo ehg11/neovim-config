@@ -14,7 +14,6 @@ return {
         },
     },
     config = function()
-        local trouble = require('trouble.providers.telescope')
         local telescope = require('telescope')
         local telescope_ignore = {
             'node_modules/',
@@ -22,21 +21,15 @@ return {
             '.venv',
             'build/',
             'build_coverage/',
-            'CMakeFiles/'
+            'CMakeFiles/',
         }
 
         telescope.setup({
-            defaults = {
-                mappings = {
-                    i = { ['<c-t>'] = trouble.open_with_trouble },
-                    n = { ['<c-t>'] = trouble.open_with_trouble },
-                }
-            },
             pickers = {
                 live_grep = {
                     file_ignore_patterns = telescope_ignore,
                     additional_args = function(_)
-                        return { "--hidden" }
+                        return { '--hidden' }
                     end,
                 },
                 find_files = {
@@ -57,22 +50,22 @@ return {
         pcall(require('telescope').load_extension, 'ui-select')
 
         local builtin = require('telescope.builtin')
-        vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles'})
-        vim.keymap.set('n', '<leader>so', builtin.oldfiles, { desc = '[S]earch [O]ld Files'})
-        vim.keymap.set('n', '<leader>gf', builtin.git_files, { desc = 'Search [G]it [F]iles'})
-        vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep'})
-        vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp'})
-        vim.keymap.set('n', '<leader>km', builtin.keymaps, { desc = 'Search [K]ey [M]aps'})
-        vim.keymap.set('n', '<leader>sb', builtin.buffers, { desc = '[S]earch [B]uffers'})
-        vim.keymap.set('n', '<leader>ss', builtin.lsp_document_symbols, { desc = '[S]earch [S]ymbols'})
-        vim.keymap.set('n', '<leader>th', builtin.colorscheme, { desc = '[T][h]eme Switcher'})
+        vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
+        vim.keymap.set('n', '<leader>so', builtin.oldfiles, { desc = '[S]earch [O]ld Files' })
+        vim.keymap.set('n', '<leader>gf', builtin.git_files, { desc = 'Search [G]it [F]iles' })
+        vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
+        vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
+        vim.keymap.set('n', '<leader>km', builtin.keymaps, { desc = 'Search [K]ey [M]aps' })
+        vim.keymap.set('n', '<leader>sb', builtin.buffers, { desc = '[S]earch [B]uffers' })
+        vim.keymap.set('n', '<leader>ss', builtin.lsp_document_symbols, { desc = '[S]earch [S]ymbols' })
+        vim.keymap.set('n', '<leader>th', builtin.colorscheme, { desc = '[T][h]eme Switcher' })
         vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
 
         vim.keymap.set('n', '<leader>/', function()
-            require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
+            require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown({
                 winblend = 10,
                 previewer = false,
-            })
+            }))
         end, { desc = '[/] Fuzzily search in current buffer' })
-    end
+    end,
 }
