@@ -7,12 +7,12 @@ local yank_path = '/mnt/c/tools/neovim/nvim-win64/bin/win32yank.exe'
 vim.g.clipboard = {
     name = 'win32yank.exe-wsl',
     copy = {
-        ['+'] = yank_path..' -i --crlf',
-        ['*'] = yank_path..' -i --crlf',
+        ['+'] = yank_path .. ' -i --crlf',
+        ['*'] = yank_path .. ' -i --crlf',
     },
     paste = {
-        ['+'] = yank_path..' -o --lf',
-        ['*'] = yank_path..' -o --lf',
+        ['+'] = yank_path .. ' -o --lf',
+        ['*'] = yank_path .. ' -o --lf',
     },
     cache_enabled = 1,
 }
