@@ -111,9 +111,9 @@ autocmd('BufWritePre', {
 })
 
 autocmd('VimLeavePre', {
-    group = augroup('close_sidebar_on_leave'),
+    group = augroup('single_window_on_leave'),
     pattern = { '*' },
     callback = function()
-        vim.cmd([[Neotree close]])
+        vim.cmd([[exe "normal \<c-w>o"]])
     end,
 })
