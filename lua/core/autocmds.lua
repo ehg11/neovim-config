@@ -1,46 +1,46 @@
 local function augroup(name)
-    return vim.api.nvim_create_augroup('ehg_'..name, { clear = true})
+    return vim.api.nvim_create_augroup('ehg_' .. name, { clear = true })
 end
 
 local autocmd = vim.api.nvim_create_autocmd
 
-autocmd({'FocusGained', 'TermClose', 'TermLeave'}, {
+autocmd({ 'FocusGained', 'TermClose', 'TermLeave' }, {
     group = augroup('checktime'),
-    command = 'checktime'
+    command = 'checktime',
 })
 
-autocmd({'TextYankPost'}, {
+autocmd({ 'TextYankPost' }, {
     group = augroup('highlight_yank'),
     callback = function()
         vim.highlight.on_yank()
     end,
 })
 
-autocmd({'VimResized'}, {
+autocmd({ 'VimResized' }, {
     group = augroup('resize_splits'),
     callback = function()
         local currTab = vim.fn.tabpagenr()
         vim.cmd('tabdo wincmd =')
-        vim.cmd('tabnext '..currTab)
+        vim.cmd('tabnext ' .. currTab)
     end,
 })
 
 autocmd('FileType', {
     group = augroup('wrap_spell'),
-    pattern = {'gitcommit', 'markdown'},
+    pattern = { 'gitcommit', 'markdown' },
     callback = function()
         vim.opt_local.wrap = true
         vim.opt_local.spell = true
-        vim.keymap.set('n', '<leader>sp', 'z=', { noremap = true, silent = true, desc = '[Sp]ell Check'})
+        vim.keymap.set('n', '<leader>sp', 'z=', { noremap = true, silent = true, desc = '[Sp]ell Check' })
         vim.cmd('TSContextDisable')
-    end
+    end,
 })
 
 autocmd('BufEnter', {
     group = augroup('markdown_sugar'),
     pattern = '*.md',
     callback = function()
-        vim.cmd [[
+        vim.cmd([[
             syn match mkdListItem "^\s*[-*+]\s\+" contains=mkdListTab,mkdListBullet2
             syn match mkdListItem "^\s*\d\+\.\s\+" contains=mkdListTab
             syn match mkdListTab "^\s*\*" contained contains=mkdListBullet1
@@ -57,17 +57,17 @@ autocmd('BufEnter', {
             syn match htmlH2 /^.\+\n-\+$/ contains=@Spell
             syn match mkdEscape "\\[`\*_{}\[\]()#\+-\.\!]" contained contains=mkdEscapeChar
             syn match mkdEscapeChar "\\" contained conceal
-        ]]
-    end
+        ]])
+    end,
 })
 
 autocmd('BufEnter', {
     group = augroup('no_autocomment'),
-    pattern = {'*'},
+    pattern = { '*' },
     callback = function()
         vim.cmd('set formatoptions-=cro')
         vim.cmd('setlocal formatoptions-=cro')
-    end
+    end,
 })
 
 autocmd('Filetype', {
@@ -75,37 +75,45 @@ autocmd('Filetype', {
     pattern = { 'toggleterm' },
     callback = function()
         vim.opt_local.signcolumn = 'no'
-    end
+    end,
 })
 
 autocmd('InsertLeave', {
     group = augroup('smartnumber_insertleave'),
-    pattern = {'*'},
+    pattern = { '*' },
     callback = function()
         if vim.bo.filetype == 'neo-tree' then
             return
         end
         vim.opt.relativenumber = true
-    end
+    end,
 })
 
 autocmd('InsertEnter', {
     group = augroup('smartnumber_insertenter'),
-    pattern = {'*'},
+    pattern = { '*' },
     callback = function()
         if vim.bo.filetype == 'neo-tree' then
             return
         end
         vim.opt.relativenumber = false
-    end
+    end,
 })
 
 autocmd('BufWritePre', {
     group = augroup('remove_trailing_whitespace'),
-    pattern = {'*'},
+    pattern = { '*' },
     callback = function()
         local curpos = vim.api.nvim_win_get_cursor(0)
         vim.cmd([[keeppatterns %s/\s\+$//e]])
         vim.api.nvim_win_set_cursor(0, curpos)
-    end
+    end,
+})
+
+autocmd('VimLeavePre', {
+    group = augroup('close_sidebar_on_leave'),
+    pattern = { '*' },
+    callback = function()
+        vim.cmd([[Neotree close]])
+    end,
 })
