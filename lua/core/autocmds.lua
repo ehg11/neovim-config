@@ -32,7 +32,6 @@ autocmd('FileType', {
         vim.opt_local.wrap = true
         vim.opt_local.spell = true
         vim.keymap.set('n', '<leader>sp', 'z=', { noremap = true, silent = true, desc = '[Sp]ell Check' })
-        vim.cmd('TSContextDisable')
     end,
 })
 
