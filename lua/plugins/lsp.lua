@@ -1,14 +1,21 @@
 return {
     'neovim/nvim-lspconfig',
+    event = { 'BufReadPre', 'BufNewFile' },
     dependencies = {
-        'williamboman/mason.nvim',
         'williamboman/mason-lspconfig.nvim',
         'folke/neodev.nvim',
         'nvim-telescope/telescope.nvim',
         'hrsh7th/cmp-nvim-lsp',
-        'WhoIsSethDaniel/mason-tool-installer.nvim',
     },
     config = function()
+        local lspconfig = require('lspconfig')
+        local mason_lspconfig = require('mason-lspconfig')
+        local cmp_nvim_lsp = require('cmp_nvim_lsp')
+        local neodev = require('neodev')
+        local telescope = require('telescope.builtin')
+
+        neodev.setup()
+
         local on_attach = function(_, bufnr)
             local lspMap = function(keys, func, desc)
                 if desc then
@@ -22,8 +29,6 @@ return {
                 })
             end
 
-            local telescope = require('telescope.builtin')
-
             lspMap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
             lspMap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
@@ -36,31 +41,28 @@ return {
             lspMap('K', vim.lsp.buf.signature_help, '[H]over Signature Documentation')
         end
 
+        vim.api.nvim_create_autocmd('LspAttach', {
+            group = vim.api.nvim_create_augroup('ehg_lsp_config', {}),
+            callback = on_attach,
+        })
+
+        local capabilities = vim.tbl_deep_extend(
+            'force',
+            vim.lsp.protocol.make_client_capabilities(),
+            cmp_nvim_lsp.default_capabilities()
+        )
+        capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = false
+
         local signs = {
             Error = ' ',
             Warn = ' ',
-            Hint = '󰌵 ',
+            Hint = '󰠠 ',
             Info = ' ',
         }
         for type, icon in pairs(signs) do
             local hl = 'DiagnosticSign' .. type
             vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
         end
-
-        require('neodev').setup()
-        local capabilities = vim.tbl_deep_extend(
-            'force',
-            vim.lsp.protocol.make_client_capabilities(),
-            require('cmp_nvim_lsp').default_capabilities()
-        )
-        capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = false
-
-        local mason = require('mason')
-        local mason_lspconfig = require('mason-lspconfig')
-        local mason_tool_installer = require('mason-tool-installer')
-        mason.setup({
-            ui = { border = 'rounded' },
-        })
 
         local servers = {
             clangd = {
@@ -74,9 +76,7 @@ return {
             pyright = {},
             tsserver = {},
             html = {},
-            marksman = {},
             cssls = {},
-            hls = {},
             lua_ls = {
                 Lua = {
                     diagnostics = {
@@ -87,21 +87,14 @@ return {
                     telemetry = { enable = false },
                 },
             },
-            bashls = {},
             gopls = {},
-            jdtls = {},
             rust_analyzer = {},
             sqlls = {},
         }
 
-        mason_lspconfig.setup({
-            ensure_installed = vim.tbl_keys(servers),
-            automatic_installation = true,
-        })
-
         mason_lspconfig.setup_handlers({
             function(server_name)
-                require('lspconfig')[server_name].setup({
+                lspconfig[server_name].setup({
                     capabilities = capabilities,
                     on_attach = on_attach,
                     settings = servers[server_name],
@@ -112,19 +105,6 @@ return {
                     end,
                 })
             end,
-        })
-
-        mason_tool_installer.setup({
-            ensure_installed = {
-                'prettier',
-                'stylua',
-                'isort',
-                'black',
-                'clang-format',
-                'pylint',
-                'eslint_d',
-                'cpplint',
-            },
         })
 
         local _border = 'rounded'

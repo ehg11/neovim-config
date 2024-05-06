@@ -16,44 +16,44 @@ return {
                     statusline = {
                         'dashboard',
                         'neo-tree',
-                    }
+                    },
                 },
             },
             sections = {
-                lualine_a = { "mode" },
-                lualine_b = {{ "branch", icon = "" }},
+                lualine_a = { 'mode' },
+                lualine_b = { { 'branch', icon = '' } },
 
                 lualine_c = {
                     {
-                        "diagnostics",
+                        'diagnostics',
                         symbols = {
-                            error = " ",
-                            warn  = " ",
-                            hint  = "󰌵 ",
-                            info  = " ",
+                            error = ' ',
+                            warn = ' ',
+                            hint = '󰠠 ',
+                            info = ' ',
                         },
                     },
                     {
-                        "filename",
+                        'filename',
                         path = 1,
-                    }
+                    },
                 },
 
                 lualine_x = {
                     {
-                        "diff",
+                        'diff',
                         symbols = {
-                            added    = " ",
-                            modified = " ",
-                            removed  = " ",
+                            added = ' ',
+                            modified = ' ',
+                            removed = ' ',
                         },
                     },
                     {
                         'filetype',
-                        icon_only = true
-                    }
+                        icon_only = true,
+                    },
                 },
-            }
+            },
         })
     end,
 }
