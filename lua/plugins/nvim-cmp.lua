@@ -2,13 +2,13 @@ return {
     'hrsh7th/nvim-cmp',
     event = 'InsertEnter',
     dependencies = {
-        "hrsh7th/cmp-buffer", -- source for text in buffer
-        "hrsh7th/cmp-path", -- source for file system paths
+        'hrsh7th/cmp-buffer', -- source for text in buffer
+        'hrsh7th/cmp-path', -- source for file system paths
         'hrsh7th/cmp-nvim-lsp',
         'hrsh7th/cmp-nvim-lsp-signature-help',
         'onsails/lspkind.nvim',
         -- Snippet Engine & its associated nvim-cmp source
-        {'L3MON4D3/LuaSnip', version = 'v2.*', build = 'make install_jsregexp'},
+        { 'L3MON4D3/LuaSnip', version = 'v2.*', build = 'make install_jsregexp' },
         'saadparwaiz1/cmp_luasnip',
         'rafamadriz/friendly-snippets',
     },
@@ -19,6 +19,14 @@ return {
         require('luasnip.loaders.from_vscode').lazy_load()
         luasnip.config.setup({})
 
+        local function toggle_docs()
+            if cmp.visible_docs() then
+                cmp.close_docs()
+            else
+                cmp.open_docs()
+            end
+        end
+
         cmp.setup({
             preselect = 'item',
             completion = {
@@ -27,12 +35,17 @@ return {
             snippet = {
                 expand = function(args)
                     luasnip.lsp_expand(args.body)
-                end
+                end,
+            },
+            view = {
+                docs = {
+                    auto_open = false,
+                },
             },
             window = {
                 documentation = cmp.config.window.bordered(),
                 completion = cmp.config.window.bordered({
-                    winhighlight = 'Normal:CmpPmenu,CursorLine:PmenuSel,Search:None'
+                    winhighlight = 'Normal:CmpPmenu,CursorLine:PmenuSel,Search:None',
                 }),
             },
             mapping = cmp.mapping.preset.insert({
@@ -47,6 +60,7 @@ return {
                     behavior = cmp.ConfirmBehavior.Replace,
                     select = true,
                 }),
+                ['<C-d>'] = toggle_docs,
             }),
             sources = cmp.config.sources({
                 { name = 'nvim_lsp' },
@@ -61,8 +75,8 @@ return {
                     maxwidth = 50,
                     ellipsis_char = '...',
                     show_labelDetails = true,
-                })
+                }),
             },
         })
-    end
+    end,
 }
