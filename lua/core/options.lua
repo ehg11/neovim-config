@@ -17,6 +17,7 @@ vim.g.clipboard = {
     cache_enabled = 1,
 }
 opt.clipboard = 'unnamedplus'
+opt.colorcolumn = '81'
 opt.completeopt = 'menuone,noselect'
 opt.cursorline = true
 opt.expandtab = true
