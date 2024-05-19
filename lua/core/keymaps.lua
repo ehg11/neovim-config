@@ -41,6 +41,7 @@ function Smart_dd()
         return 'dd'
     end
 end
+
 vim.keymap.set('n', 'dd', Smart_dd, { noremap = true, expr = true, silent = true })
 
 -- select all
@@ -91,5 +92,5 @@ vim.keymap.set('n', '<leader>dn', vim.diagnostic.goto_next, { desc = '[D]iagnost
 vim.keymap.set('n', '<leader>dp', vim.diagnostic.goto_prev, { desc = '[D]iagnostic [P]revious' })
 
 -- quick fix
-vim.keymap.set('n', '<C-]>', '<cmd>cnext<CR>zz')
-vim.keymap.set('n', '<C-[>', '<cmd>cprev<CR>zz')
+vim.keymap.set('n', '<M-]>', '<cmd>cnext<CR>zz')
+vim.keymap.set('n', '<M-[>', '<cmd>cprev<CR>zz')
