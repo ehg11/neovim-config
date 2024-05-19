@@ -6,7 +6,7 @@ return {
         local toggleterm = require('toggleterm')
         toggleterm.setup({
             size = 20,
-            open_mapping = [[<C-\>]],
+            open_mapping = [[<M-`>]],
             hide_numbers = true,
             shade_filetypes = {},
             shade_terminals = true,
@@ -20,7 +20,10 @@ return {
         })
 
         vim.api.nvim_create_autocmd('TermOpen', {
-            group = vim.api.nvim_create_augroup('ToggleTermAu', { clear = true }),
+            group = vim.api.nvim_create_augroup(
+                'ToggleTermAu',
+                { clear = true }
+            ),
             callback = function()
                 vim.keymap.set(
                     't',
@@ -28,35 +31,14 @@ return {
                     [[<C-\><C-n>]],
                     { noremap = true, desc = 'Leave Terminal Mode', buffer = 0 }
                 )
-                vim.keymap.set(
-                    't',
-                    '<C-h>',
-                    [[<Cmd>ToggleTerm 1<CR>i]],
-                    { noremap = true, buffer = 0, desc = 'Show Terminal 1' }
-                )
-                vim.keymap.set(
-                    't',
-                    '<C-j>',
-                    [[<Cmd>ToggleTerm 2<CR>i]],
-                    { noremap = true, buffer = 0, desc = 'Show Terminal 2' }
-                )
-                vim.keymap.set(
-                    't',
-                    '<C-k>',
-                    [[<Cmd>ToggleTerm 3<CR>i]],
-                    { noremap = true, buffer = 0, desc = 'Show Terminal 3' }
-                )
-                vim.keymap.set(
-                    't',
-                    '<C-l>',
-                    [[<Cmd>ToggleTerm 4<CR>i]],
-                    { noremap = true, buffer = 0, desc = 'Show Terminal 4' }
-                )
             end,
         })
 
         vim.api.nvim_create_autocmd('TermEnter', {
-            group = vim.api.nvim_create_augroup('TermEnterAu', { clear = true }),
+            group = vim.api.nvim_create_augroup(
+                'TermEnterAu',
+                { clear = true }
+            ),
             callback = function()
                 vim.opt.nu = false
                 vim.opt.relativenumber = false
