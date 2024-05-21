@@ -35,10 +35,18 @@ return {
             lspMap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
             lspMap('gr', telescope.lsp_references, '[G]oto [R]eferences')
             lspMap('gi', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
-            lspMap('gt', vim.lsp.buf.type_definition, '[G]oto [T]ype Definition')
+            lspMap(
+                'gt',
+                vim.lsp.buf.type_definition,
+                '[G]oto [T]ype Definition'
+            )
 
             lspMap('H', vim.lsp.buf.hover, '[H]over Documentation')
-            lspMap('K', vim.lsp.buf.signature_help, '[H]over Signature Documentation')
+            lspMap(
+                'K',
+                vim.lsp.buf.signature_help,
+                '[H]over Signature Documentation'
+            )
         end
 
         vim.api.nvim_create_autocmd('LspAttach', {
@@ -108,12 +116,14 @@ return {
         })
 
         local _border = 'rounded'
-        vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
-            border = _border,
-        })
-        vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-            border = _border,
-        })
+        vim.lsp.handlers['textDocument/hover'] =
+            vim.lsp.with(vim.lsp.handlers.hover, {
+                border = _border,
+            })
+        vim.lsp.handlers['textDocument/signatureHelp'] =
+            vim.lsp.with(vim.lsp.handlers.signature_help, {
+                border = _border,
+            })
         vim.diagnostic.config({
             float = { border = _border },
         })

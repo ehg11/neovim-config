@@ -25,7 +25,7 @@ opt.fillchars = { eob = ' ' }
 opt.formatoptions = 'jqlnt'
 opt.hlsearch = false
 opt.ignorecase = true
-opt.inccommand = 'nosplit'
+opt.inccommand = 'split'
 opt.incsearch = true
 opt.laststatus = 3
 opt.linebreak = true
