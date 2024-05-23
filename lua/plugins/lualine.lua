@@ -16,6 +16,7 @@ return {
                     statusline = {
                         'dashboard',
                         'neo-tree',
+                        'NvimTree',
                     },
                 },
             },
