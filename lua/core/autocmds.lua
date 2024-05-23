@@ -121,3 +121,11 @@ autocmd('VimLeavePre', {
         vim.cmd([[exe "normal \<c-w>o"]])
     end,
 })
+
+autocmd('FileType', {
+    group = augroup('vertical_help'),
+    pattern = { 'help' },
+    callback = function()
+        vim.cmd([[wincmd L]])
+    end,
+})
