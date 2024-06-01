@@ -3,7 +3,8 @@ vim.g.mapleader = ' '
 local opt = vim.opt
 
 opt.breakindent = true
-local yank_path = '/mnt/c/tools/neovim/nvim-win64/bin/win32yank.exe'
+local windows_nvim_directory = '/mnt/c/Neovim/bin/'
+local yank_path = windows_nvim_directory .. '/win32yank.exe'
 vim.g.clipboard = {
     name = 'win32yank.exe-wsl',
     copy = {
@@ -17,7 +18,7 @@ vim.g.clipboard = {
     cache_enabled = 1,
 }
 opt.clipboard = 'unnamedplus'
-opt.colorcolumn = '81'
+opt.colorcolumn = ''
 opt.completeopt = 'menuone,noselect'
 opt.cursorline = true
 opt.expandtab = true

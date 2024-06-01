@@ -181,7 +181,7 @@ vim.keymap.set('n', '<M-]>', '<cmd>cnext<CR>zz')
 vim.keymap.set('n', '<M-[>', '<cmd>cprev<CR>zz')
 
 -- colorcolumn toggle
-local colorcolumn_active = true
+local colorcolumn_active = false
 local toggle_colorcolumn = function()
     colorcolumn_active = not colorcolumn_active
     if colorcolumn_active then
