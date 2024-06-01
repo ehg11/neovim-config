@@ -10,12 +10,12 @@ return {
         local sources = {
             -- formatting
             null_ls.builtins.formatting.stylua,
-            -- null_ls.builtins.formatting.clang_format,
+            null_ls.builtins.formatting.clang_format,
             null_ls.builtins.formatting.prettierd,
             null_ls.builtins.formatting.isort,
             null_ls.builtins.formatting.black,
             -- linters
-            require('none-ls.diagnostics.eslint'),
+            -- require('none-ls.diagnostics.eslint'),
         }
 
         null_ls.setup({
@@ -29,7 +29,7 @@ return {
                         ),
                         buffer = bufnr,
                         callback = function()
-                            vim.lsp.buf.format({ async = false })
+                            vim.lsp.buf.format()
                         end,
                     })
                 end

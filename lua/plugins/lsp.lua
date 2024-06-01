@@ -79,6 +79,7 @@ return {
                     '--background-index',
                     '--suggest-missing-includes',
                     '--enable-config',
+                    '--offset-encoding=utf-16',
                 },
             },
             pyright = {},

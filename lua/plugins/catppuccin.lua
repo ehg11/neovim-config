@@ -17,10 +17,10 @@ return {
                 native_lsp = {
                     enabled = true,
                     underlines = {
-                        errors = {'undercurl'},
-                        hints = {'undercurl'},
-                        warnings = {'undercurl'},
-                        information = {'undercurl'},
+                        errors = { 'undercurl' },
+                        hints = { 'undercurl' },
+                        warnings = { 'undercurl' },
+                        information = { 'undercurl' },
                     },
                     virtual_text = {
                         errors = {},
@@ -34,10 +34,10 @@ return {
             },
             styles = {
                 comments = {},
-                conditionals = {}
-            }
+                conditionals = {},
+            },
         })
 
-        vim.cmd.colorscheme('catppuccin-macchiato')
-    end
+        vim.cmd.colorscheme('catppuccin-mocha')
+    end,
 }

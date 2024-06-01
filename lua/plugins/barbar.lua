@@ -20,7 +20,12 @@ return {
         })
 
         function BarbarMap(mode, keybind, action, desc)
-            vim.api.nvim_set_keymap(mode, keybind, action, { desc = desc, noremap = true, silent = true })
+            vim.api.nvim_set_keymap(
+                mode,
+                keybind,
+                action,
+                { desc = desc, noremap = true, silent = true }
+            )
         end
 
         -- Move to previous/next
