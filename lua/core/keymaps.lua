@@ -157,24 +157,6 @@ vim.keymap.set(
     toggleDiagnostics,
     { desc = 'Toggle [D]iagnostics' }
 )
-vim.keymap.set(
-    'n',
-    '<leader>dh',
-    vim.diagnostic.open_float,
-    { desc = '[D]iagnostic [Hover]' }
-)
-vim.keymap.set(
-    'n',
-    '<leader>dn',
-    vim.diagnostic.goto_next,
-    { desc = '[D]iagnostic [N]ext' }
-)
-vim.keymap.set(
-    'n',
-    '<leader>dp',
-    vim.diagnostic.goto_prev,
-    { desc = '[D]iagnostic [P]revious' }
-)
 
 -- quick fix
 vim.keymap.set('n', '<M-]>', '<cmd>cnext<CR>zz')
