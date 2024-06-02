@@ -1,17 +1,26 @@
 return {
-    'numToStr/Comment.nvim',
-    event = 'VeryLazy',
-    config = function()
-        local comment = require('Comment')
-        comment.setup({
-            toggler = {
-                line = '<C-_>',
-                block = '<M-/>',
+    {
+        'JoosepAlviste/nvim-ts-context-commentstring',
+        lazy = true,
+        opts = {
+            enable_autocmd = false,
+        },
+    },
+    {
+        'echasnovski/mini.comment',
+        event = 'VeryLazy',
+        opts = {
+            options = {
+                custom_commentstring = function()
+                    local cmt = require('ts_context_commentstring.internal')
+                    return cmt.calculate_commentstring() or vim.bo.commentstring
+                end,
             },
-            opleader = {
-                line = '<C-_>',
-                block = '<M-/>',
+            mappings = {
+                comment = '<C-_>',
+                comment_line = '<C-_>',
+                comment_visual = '<C-_>',
             },
-        })
-    end
+        },
+    },
 }
