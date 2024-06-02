@@ -40,13 +40,6 @@ return {
                 vim.lsp.buf.type_definition,
                 '[G]oto [T]ype Definition'
             )
-
-            lspMap('H', vim.lsp.buf.hover, '[H]over Documentation')
-            lspMap(
-                'K',
-                vim.lsp.buf.signature_help,
-                '[H]over Signature Documentation'
-            )
         end
 
         vim.api.nvim_create_autocmd('LspAttach', {
@@ -98,7 +91,6 @@ return {
             },
             gopls = {},
             rust_analyzer = {},
-            sqlls = {},
         }
 
         mason_lspconfig.setup_handlers({
