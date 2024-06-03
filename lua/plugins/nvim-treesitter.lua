@@ -17,10 +17,6 @@ return {
             },
             indent = { enable = true },
             auto_install = true,
-            context_commentstring = {
-                enable = true,
-                enable_autocmd = false,
-            },
             textobjects = {
                 select = {
                     enable = true,
