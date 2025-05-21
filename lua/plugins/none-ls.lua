@@ -14,22 +14,32 @@ return {
             null_ls.builtins.formatting.prettierd,
             null_ls.builtins.formatting.isort,
             null_ls.builtins.formatting.black,
+            null_ls.builtins.formatting.gofmt,
             -- linters
             -- require('none-ls.diagnostics.eslint'),
         }
 
+        local augroup =
+            vim.api.nvim_create_augroup('ehg_format_on_save', { clear = true })
         null_ls.setup({
             sources = sources,
             on_attach = function(client, bufnr)
                 if client.supports_method('textDocument/formatting') then
+                    vim.api.nvim_clear_autocmds({
+                        group = augroup,
+                        buffer = bufnr,
+                    })
                     vim.api.nvim_create_autocmd('BufWritePre', {
-                        group = vim.api.nvim_create_augroup(
-                            'ehg_format_on_save',
-                            { clear = true }
-                        ),
+                        group = augroup,
                         buffer = bufnr,
                         callback = function()
-                            vim.lsp.buf.format()
+                            vim.lsp.buf.format({
+                                async = false,
+                                bufnr = bufnr,
+                                filter = function(c)
+                                    return c.name == "null-ls"
+                                end
+                            })
                         end,
                     })
                 end

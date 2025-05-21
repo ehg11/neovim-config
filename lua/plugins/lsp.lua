@@ -6,15 +6,47 @@ return {
         'folke/neodev.nvim',
         'nvim-telescope/telescope.nvim',
         'hrsh7th/cmp-nvim-lsp',
+        'mason-org/mason-lspconfig.nvim',
     },
     config = function()
-        local lspconfig = require('lspconfig')
         local mason_lspconfig = require('mason-lspconfig')
         local cmp_nvim_lsp = require('cmp_nvim_lsp')
         local neodev = require('neodev')
         local telescope = require('telescope.builtin')
 
         neodev.setup()
+        mason_lspconfig.setup({
+            ensure_installed = {
+                -- C/C++
+                'clangd',
+
+                -- Python
+                'pyright',
+                'basedpyright',
+                'pylsp',
+                'pylyzer',
+                'ruff',
+
+                -- Lua
+                'lua_ls',
+
+                -- TS/JS/React
+                'ts_ls',
+                'eslint',
+                'vtsls',
+                'biome',
+
+                -- Markdown
+                'marksman',
+                'ltex',
+                'prosemd_lsp',
+                'textlsp',
+
+                -- Shell
+                'bashls',
+            },
+            automatic_enable = true,
+        })
 
         local on_attach = function(_, bufnr)
             local lspMap = function(keys, func, desc)
@@ -92,21 +124,6 @@ return {
             gopls = {},
             rust_analyzer = {},
         }
-
-        mason_lspconfig.setup_handlers({
-            function(server_name)
-                lspconfig[server_name].setup({
-                    capabilities = capabilities,
-                    on_attach = on_attach,
-                    settings = servers[server_name],
-                    filetypes = (servers[server_name] or {}).filetypes,
-                    cmd = (servers[server_name] or {}).cmd,
-                    root_dir = function()
-                        return vim.loop.cwd()
-                    end,
-                })
-            end,
-        })
 
         local _border = 'rounded'
         vim.lsp.handlers['textDocument/hover'] =

@@ -1,9 +1,3 @@
-require('core')
-
-if vim.g.vscode then
-    return
-end
-
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
     vim.fn.system {
@@ -17,12 +11,27 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require('lazy').setup('plugins', {
-    checker = {
-        enabled = true,
-        notify = false,
-    },
-    change_detection = {
-        notify = false,
-    },
-})
+
+if vim.g.vscode then
+    require('code')
+    require('lazy').setup('code.plugins', {
+        checker = {
+            enabled = true,
+            notify = false,
+        },
+        change_detection = {
+            notify = false,
+        },
+    })
+else
+    require('core')
+    require('lazy').setup('plugins', {
+        checker = {
+            enabled = true,
+            notify = false,
+        },
+        change_detection = {
+            notify = false,
+        },
+    })
+end

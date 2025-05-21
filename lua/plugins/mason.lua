@@ -22,7 +22,7 @@ return {
                 'lua_ls',
                 'pyright',
                 'rust_analyzer',
-                'tsserver',
+                'ts_ls',
             },
             automatic_installation = true,
         })

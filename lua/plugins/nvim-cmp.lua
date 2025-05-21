@@ -60,7 +60,7 @@ return {
                 ['<C-n>'] = cmp.mapping.scroll_docs(2),
                 ['<C-e>'] = cmp.mapping.abort(),
                 ['<Tab>'] = cmp.mapping.confirm({
-                    behavior = cmp.ConfirmBehavior.Replace,
+                    behavior = cmp.ConfirmBehavior.Insert,
                     select = true,
                 }),
                 ['<C-d>'] = toggle_docs,
