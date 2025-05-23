@@ -2,6 +2,9 @@ local map = vim.keymap.set
 local unmap = vim.keymap.del
 local vscode = require("vscode")
 
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
 -- clear search
 map({ "i", "n", "s" }, "<esc>", function()
   vim.cmd("noh")
@@ -76,3 +79,11 @@ end, { silent = true, desc = "Go to Definition" })
 map("n", "gr", function()
     vscode.action("editor.action.referenceSearch.trigger")
 end, { silent = true, desc = "Show References" })
+
+map("n", "<leader>sf", function()
+    vscode.action("workbench.action.quickOpen")
+end, { silent = true, desc = "Search in Files" })
+
+map("n", "<leader>sr", function()
+    vscode.action("workbench.action.openRecent")
+end, { silent = true, desc = "Open Recent" })
